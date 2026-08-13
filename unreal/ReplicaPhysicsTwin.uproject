@@ -1,0 +1,22 @@
+{
+  "FileVersion": 3,
+  "EngineAssociation": "5.7",
+  "Category": "Simulation",
+  "Description": "MuJoCo-authoritative Replica physics twin Phase 3 bridge validation.",
+  "Modules": [
+    {
+      "Name": "ReplicaPhysicsTwin",
+      "Type": "Runtime",
+      "LoadingPhase": "Default"
+    }
+  ],
+  "TargetPlatforms": [
+    "Win64"
+  ],
+  "Plugins": [
+    {
+      "Name": "ProceduralMeshComponent",
+      "Enabled": true
+    }
+  ]
+}

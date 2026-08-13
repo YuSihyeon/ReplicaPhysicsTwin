@@ -1,0 +1,57 @@
+schema_version: 1
+disclaimer: >-
+  All physics values are unmeasured priors. They must include ranges,
+  confidence, assumptions, and is_measured=false in generated metadata.
+
+defaults:
+  material_candidates:
+    - unknown
+  # Scalar MVP values are the values used by the resolver. The ranges below
+  # remain available to document uncertainty and future calibration.
+  density_kg_m3: 650.0
+  fill_factor: 0.5
+  sliding_friction: 0.45
+  torsional_friction: 0.005
+  rolling_friction: 0.001
+  restitution: 0.05
+  density_kg_m3_range: [100.0, 1200.0]
+  sliding_friction_range: [0.3, 0.8]
+  torsional_friction_range: [0.001, 0.02]
+  rolling_friction_range: [0.0001, 0.01]
+  restitution_range: [0.0, 0.2]
+  fill_factor_range: [0.05, 1.0]
+  confidence: low
+  source: semantic_and_geometry_prior
+  is_measured: false
+
+materials:
+  tissue-paper:
+    density_kg_m3: 450.0
+    fill_factor: 0.4
+    sliding_friction: 0.35
+    torsional_friction: 0.005
+    rolling_friction: 0.001
+    restitution: 0.05
+    confidence: low
+    source: semantic_class_prior
+    is_measured: false
+  desk-organizer:
+    density_kg_m3: 500.0
+    fill_factor: 0.1
+    sliding_friction: 0.45
+    torsional_friction: 0.005
+    rolling_friction: 0.001
+    restitution: 0.05
+    confidence: low
+    source: semantic_class_prior_plastic_or_metal_container
+    is_measured: false
+  chair:
+    density_kg_m3: 160.0
+    fill_factor: 0.55
+    sliding_friction: 0.6
+    torsional_friction: 0.005
+    rolling_friction: 0.001
+    restitution: 0.05
+    confidence: low
+    source: semantic_class_prior_furniture
+    is_measured: false

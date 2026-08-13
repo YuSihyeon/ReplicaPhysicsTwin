@@ -1,0 +1,36 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+data/downloads/
+data/raw/
+data/processed/
+data/derived/
+
+# Generated meshes, MJCF, manifests, and runtime logs
+outputs/
+
+# Unreal generated files and local editor state
+unreal/Binaries/
+unreal/DerivedDataCache/
+unreal/Intermediate/
+unreal/Saved/
+unreal/.vs/
+unreal/Plugins/**/Binaries/
+unreal/Plugins/**/Intermediate/
+unreal/Plugins/**/Saved/
+
+*.log
+*.tmp
+MUJOCO_LOG.TXT
+RUN_LOG.md
+.DS_Store
+Thumbs.db

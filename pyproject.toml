@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+
+[project]
+name = "replica-physics-twin"
+version = "0.1.0"
+description = "Ground-truth Replica instance pipeline for MuJoCo and Unreal validation"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
+dependencies = []
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/replica_physics_twin"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
