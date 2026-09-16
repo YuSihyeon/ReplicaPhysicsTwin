@@ -1,0 +1,19 @@
+{
+  "date": "2026-09-16",
+  "python": "3.13.10",
+  "mujoco": "3.10.0",
+  "model": {
+    "nbody": 337,
+    "ngeom": 150,
+    "nflex": 2,
+    "nflexvert": 224,
+    "timestep_s": 0.0005
+  },
+  "verification_script": "scripts/verify_replica_cad_physics.py",
+  "script_steps_per_body": 1800,
+  "horizon_per_body_s": 0.9,
+  "status": "failed",
+  "error": "body did not fall under gravity: replica_bike_02_100",
+  "error_type": "AssertionError",
+  "interpretation": "Current local validation failed in this environment; historical report PASS must not be presented as a fresh validation. Fixed step counts correspond to 0.9 seconds at the current 0.0005 second timestep. Root cause is not established by this audit."
+}

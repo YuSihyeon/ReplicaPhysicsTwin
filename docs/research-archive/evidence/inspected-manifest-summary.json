@@ -1,0 +1,116 @@
+{
+  "dataset": "ReplicaCAD",
+  "scene_id": "apt_0",
+  "physics_authority": "MuJoCo",
+  "coordinate_system": {
+    "source_up_axis": "Y",
+    "target_up_axis": "Z",
+    "source_to_target": "[x,y,z] -> [x,-z,y]",
+    "units": "meters; Unreal visual interchange is centimeters"
+  },
+  "model_summary": {
+    "nbody": 337,
+    "ngeom": 150,
+    "njnt": 673,
+    "nflex": 2,
+    "nflexvert": 224,
+    "neq": 17,
+    "nq": 679,
+    "nv": 678
+  },
+  "dynamic_bodies": [
+    {
+      "name": "replica_bike_02_100",
+      "template_name": "frl_apartment_bike_02",
+      "source_object_id": 100,
+      "mass_kg": 9.0,
+      "mass_source": "ReplicaCAD object_config.json:mass",
+      "inertia_source": "derived_from_collision_mesh_bounds",
+      "mujoco_mass_kg": 9.0,
+      "mass_validation": "passed",
+      "mujoco_flex_vertex_count": null,
+      "cloth_grid": null,
+      "cloth_material": null
+    },
+    {
+      "name": "replica_cloth_01_103",
+      "template_name": "frl_apartment_cloth_01",
+      "source_object_id": 103,
+      "mass_kg": 2.0,
+      "mass_source": "ReplicaCAD object_config.json:mass",
+      "inertia_source": "derived_from_collision_mesh_bounds",
+      "mujoco_mass_kg": 1.9999999999999976,
+      "mass_validation": "passed",
+      "mujoco_flex_vertex_count": 112,
+      "cloth_grid": {
+        "cols": 8,
+        "rows": 14,
+        "local_bounds_min_m": [
+          -0.3770613372325897,
+          -0.09981504827737808,
+          -0.4309174418449402
+        ],
+        "local_bounds_max_m": [
+          0.3821302354335785,
+          0.09861508011817932,
+          0.5780905485153198
+        ],
+        "mapping_axes": "local_xz_to_flex_xy",
+        "preserve_source_depth": true
+      },
+      "cloth_material": {
+        "young_pa": 25000.0,
+        "poisson": 0.3,
+        "damping": 0.06,
+        "thickness_m": 0.002,
+        "radius_m": 0.002,
+        "wind_drag_coefficient": 1.35,
+        "wind_model": "MuJoCo option wind + air density/viscosity fluid drag"
+      }
+    },
+    {
+      "name": "replica_cloth_02_96",
+      "template_name": "frl_apartment_cloth_02",
+      "source_object_id": 96,
+      "mass_kg": 0.6,
+      "mass_source": "ReplicaCAD object_config.json:mass",
+      "inertia_source": "derived_from_collision_mesh_bounds",
+      "mujoco_mass_kg": 0.599999999999999,
+      "mass_validation": "passed",
+      "mujoco_flex_vertex_count": 112,
+      "cloth_grid": {
+        "cols": 8,
+        "rows": 14,
+        "local_bounds_min_m": [
+          -0.23139937222003937,
+          -0.020128387957811356,
+          -0.5233297348022461
+        ],
+        "local_bounds_max_m": [
+          0.31456106901168823,
+          0.01925177313387394,
+          0.7117078900337219
+        ],
+        "mapping_axes": "local_xz_to_flex_xy",
+        "preserve_source_depth": true
+      },
+      "cloth_material": {
+        "young_pa": 12000.0,
+        "poisson": 0.3,
+        "damping": 0.04,
+        "thickness_m": 0.001,
+        "radius_m": 0.001,
+        "wind_drag_coefficient": 1.35,
+        "wind_model": "MuJoCo option wind + air density/viscosity fluid drag"
+      }
+    }
+  ],
+  "static_visual_instances": 110,
+  "static_collision_instances": 110,
+  "static_collision_modes": {
+    "replica_cad_convex_decomposition": 81,
+    "bounding_box": 29
+  },
+  "inspected_date": "2026-09-16",
+  "historical_report_discrepancy": "REPLICA_CAD_IMPLEMENTATION_REPORT.md describes 593 bodies, 117 geoms, 480 flex vertices; inspected generated manifest describes 337 bodies, 150 geoms, 224 flex vertices (8x14 per cloth)."
+}

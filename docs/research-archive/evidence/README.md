@@ -1,18 +1,5 @@
 # Replica Physics Twin
 
-## 한국어 연구 정리와 데모 · 2026-09-16
-
-- [연구 의도·도구 선정·과정·결과·분석·후속 과제](docs/research-archive/README.ko.md)
-- [영상 보기와 원본 MP4](docs/research-archive/MEDIA.md)
-- [현재 생성 모델과 과거 보고서의 차이](docs/research-archive/evidence/inspected-manifest-summary.json)
-- [2026-09-16 재검증 기록](docs/research-archive/evidence/reverified-physics-2026-09-16.json)
-- [GS·로봇·광학 종합 연구 아카이브](https://github.com/YuSihyeon/ResearchArchive)
-
-현재 보존된 생성 모델은 337 bodies / 150 geoms / 224 flex vertices로,
-아래 과거 구현 보고서에 적힌 구성과 다릅니다. 이번 기존 검증 스크립트 재실행은
-자전거 낙하 판정에서 실패했습니다. 과거 PASS와 현재 재검증 상태를 구분해 읽어주세요.
-
-
 Reproducible physics-twin prototype that connects ReplicaCAD scene assets to
 MuJoCo dynamics and Unreal Engine visualization/input.
 

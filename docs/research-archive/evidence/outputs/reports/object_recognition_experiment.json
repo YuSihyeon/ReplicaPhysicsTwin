@@ -1,0 +1,1383 @@
+{
+  "schema_version": 1,
+  "scene_id": "office_0",
+  "target": "tissue_box",
+  "feature_source": [
+    "scene_manifest",
+    "semantic_summary",
+    "semantic_mesh_presence"
+  ],
+  "input_paths": {
+    "scene_manifest": "${REPLICA_ROOT}\\data\\derived\\office_0\\scene_manifest.json",
+    "semantic_summary": "${REPLICA_ROOT}\\data\\derived\\office_0\\semantic_summary.json",
+    "semantic_mesh": "${REPLICA_ROOT}\\data\\raw\\replica_v1\\office_0\\habitat\\mesh_semantic.ply"
+  },
+  "semantic_mesh_bytes": 27103742,
+  "candidate_feature_count": 54,
+  "recognition": {
+    "target": "tissue_box",
+    "status": "selected",
+    "selected_object_id": 28,
+    "requires_user_confirmation": false,
+    "candidates": [
+      {
+        "object_id": 28,
+        "class_name": "tissue-paper",
+        "score": 0.9,
+        "evidence": [
+          "semantic_class_exact_or_alias",
+          "size_within_target_range",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 28,
+          "class_name": "tissue-paper",
+          "center_m": [
+            -0.6377331018447876,
+            -0.684053897857666,
+            -0.44248145818710327
+          ],
+          "size_m": [
+            0.14029031991958618,
+            0.12199956178665161,
+            0.199005126953125
+          ],
+          "face_count": 389,
+          "role": "tissue_box",
+          "support_proxy": "desk_58"
+        }
+      },
+      {
+        "object_id": 2,
+        "class_name": "anonymize_picture",
+        "score": 0.17,
+        "evidence": [
+          "size_matches_2_of_3_axes",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 2,
+          "class_name": "anonymize_picture",
+          "center_m": [
+            -0.7818485498428345,
+            -0.38469141721725464,
+            -0.4750368297100067
+          ],
+          "size_m": [
+            0.17923951148986816,
+            0.16273769736289978,
+            0.04776948690414429
+          ],
+          "face_count": 139,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 11,
+        "class_name": "camera",
+        "score": 0.17,
+        "evidence": [
+          "size_matches_2_of_3_axes",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 11,
+          "class_name": "camera",
+          "center_m": [
+            -0.485385537147522,
+            -2.0692191123962402,
+            0.5279815793037415
+          ],
+          "size_m": [
+            0.12219595909118652,
+            0.16123604774475098,
+            0.13365590572357178
+          ],
+          "face_count": 309,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 38,
+        "class_name": "wall-plug",
+        "score": 0.17,
+        "evidence": [
+          "size_matches_2_of_3_axes",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 38,
+          "class_name": "wall-plug",
+          "center_m": [
+            -1.7743916511535645,
+            -2.6773972511291504,
+            -0.7474133968353271
+          ],
+          "size_m": [
+            0.03644454479217529,
+            0.10995078086853027,
+            0.1806766390800476
+          ],
+          "face_count": 112,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 44,
+        "class_name": "desk-organizer",
+        "score": 0.17,
+        "evidence": [
+          "size_matches_2_of_3_axes",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 44,
+          "class_name": "desk-organizer",
+          "center_m": [
+            -0.12788982689380646,
+            -0.7285619378089905,
+            -0.4102608561515808
+          ],
+          "size_m": [
+            0.32336345314979553,
+            0.19529306888580322,
+            0.21663066744804382
+          ],
+          "face_count": 1385,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 12,
+        "class_name": "table",
+        "score": 0.15,
+        "evidence": [
+          "supported_by_expected_surface",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 12,
+          "class_name": "table",
+          "center_m": [
+            1.7909011840820312,
+            -0.6796841025352478,
+            -0.8412348031997681
+          ],
+          "size_m": [
+            0.5695191621780396,
+            0.5683294534683228,
+            0.6068063378334045
+          ],
+          "face_count": 4740,
+          "role": "table",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 58,
+        "class_name": "table",
+        "score": 0.15,
+        "evidence": [
+          "supported_by_expected_surface",
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 58,
+          "class_name": "table",
+          "center_m": [
+            -0.1803870052099228,
+            -0.2670511305332184,
+            -0.8200587034225464
+          ],
+          "size_m": [
+            1.0567647218704224,
+            1.253953456878662,
+            0.6251139044761658
+          ],
+          "face_count": 12762,
+          "role": "table",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 1,
+        "class_name": "anonymize_text",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 1,
+          "class_name": "anonymize_text",
+          "center_m": [
+            -0.3771563172340393,
+            -0.8965555429458618,
+            -0.455667108297348
+          ],
+          "size_m": [
+            0.053064972162246704,
+            0.01896524429321289,
+            0.05937981605529785
+          ],
+          "face_count": 25,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 3,
+        "class_name": "anonymize_picture",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 3,
+          "class_name": "anonymize_picture",
+          "center_m": [
+            1.9429926872253418,
+            -1.3253722190856934,
+            0.07435078918933868
+          ],
+          "size_m": [
+            0.007311224937438965,
+            1.201063871383667,
+            0.6634930372238159
+          ],
+          "face_count": 4643,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 4,
+        "class_name": "chair",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 4,
+          "class_name": "chair",
+          "center_m": [
+            0.3534424602985382,
+            -0.5655897855758667,
+            -0.7543604969978333
+          ],
+          "size_m": [
+            0.6688918471336365,
+            0.6311030387878418,
+            0.7613860368728638
+          ],
+          "face_count": 7872,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 5,
+        "class_name": "rug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 5,
+          "class_name": "rug",
+          "center_m": [
+            0.11120116710662842,
+            -0.9052338600158691,
+            -1.075388789176941
+          ],
+          "size_m": [
+            3.9150078296661377,
+            4.283990859985352,
+            0.15498167276382446
+          ],
+          "face_count": 68552,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 6,
+        "class_name": "anonymize_text",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 6,
+          "class_name": "anonymize_text",
+          "center_m": [
+            -0.8829226493835449,
+            0.16698646545410156,
+            -0.44472792744636536
+          ],
+          "size_m": [
+            0.03996163606643677,
+            0.039781928062438965,
+            0.05513864755630493
+          ],
+          "face_count": 25,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 7,
+        "class_name": "sofa",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 7,
+          "class_name": "sofa",
+          "center_m": [
+            0.9978115558624268,
+            1.0795893669128418,
+            -0.7876712083816528
+          ],
+          "size_m": [
+            1.1035385131835938,
+            1.8532747030258179,
+            0.7096786499023438
+          ],
+          "face_count": 18207,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 8,
+        "class_name": "wall",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 8,
+          "class_name": "wall",
+          "center_m": [
+            -1.8256580829620361,
+            -0.6336920857429504,
+            0.2945846915245056
+          ],
+          "size_m": [
+            0.04987215995788574,
+            4.427328109741211,
+            2.8683829307556152
+          ],
+          "face_count": 59544,
+          "role": "wall",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 9,
+        "class_name": "sofa",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 9,
+          "class_name": "sofa",
+          "center_m": [
+            -1.366696834564209,
+            -0.9000787734985352,
+            -0.7944577932357788
+          ],
+          "size_m": [
+            0.9763556718826294,
+            2.963501453399658,
+            0.7237553596496582
+          ],
+          "face_count": 30528,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 10,
+        "class_name": "ceiling",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 10,
+          "class_name": "ceiling",
+          "center_m": [
+            0.11986374855041504,
+            -0.692631185054779,
+            1.732628583908081
+          ],
+          "size_m": [
+            3.9347028732299805,
+            4.557372570037842,
+            0.038564085960388184
+          ],
+          "face_count": 92619,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 13,
+        "class_name": "anonymize_text",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 13,
+          "class_name": "anonymize_text",
+          "center_m": [
+            -0.3259260058403015,
+            -0.7467280030250549,
+            -0.4537634253501892
+          ],
+          "size_m": [
+            0.020339667797088623,
+            0.038382649421691895,
+            0.05166354775428772
+          ],
+          "face_count": 20,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 15,
+        "class_name": "blinds",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 15,
+          "class_name": "blinds",
+          "center_m": [
+            1.7561392784118652,
+            -1.3061609268188477,
+            0.3464694321155548
+          ],
+          "size_m": [
+            0.1866466999053955,
+            0.6070345640182495,
+            2.212348222732544
+          ],
+          "face_count": 7621,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 16,
+        "class_name": "door",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 16,
+          "class_name": "door",
+          "center_m": [
+            1.9209182262420654,
+            -1.093503475189209,
+            0.21766763925552368
+          ],
+          "size_m": [
+            0.2725487947463989,
+            0.9500212669372559,
+            2.7159876823425293
+          ],
+          "face_count": 8724,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 17,
+        "class_name": "vent",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 17,
+          "class_name": "vent",
+          "center_m": [
+            1.6496418714523315,
+            -1.0010528564453125,
+            1.7681376934051514
+          ],
+          "size_m": [
+            0.5632829666137695,
+            0.5664604306221008,
+            0.09625351428985596
+          ],
+          "face_count": 2586,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 18,
+        "class_name": "wall",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 18,
+          "class_name": "wall",
+          "center_m": [
+            1.867180585861206,
+            -0.36576855182647705,
+            -0.8730102777481079
+          ],
+          "size_m": [
+            0.004362225532531738,
+            0.0043108463287353516,
+            0.523686945438385
+          ],
+          "face_count": 41,
+          "role": "wall",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 19,
+        "class_name": "bin",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 19,
+          "class_name": "bin",
+          "center_m": [
+            1.479210615158081,
+            -0.5241802930831909,
+            -0.9543908834457397
+          ],
+          "size_m": [
+            0.3380913734436035,
+            0.3746974468231201,
+            0.3752201199531555
+          ],
+          "face_count": 3959,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 20,
+        "class_name": "blinds",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 20,
+          "class_name": "blinds",
+          "center_m": [
+            -2.933849811553955,
+            -0.5722837448120117,
+            0.21678483486175537
+          ],
+          "size_m": [
+            0.4704709053039551,
+            2.9985694885253906,
+            2.702864170074463
+          ],
+          "face_count": 25718,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 21,
+        "class_name": "lamp",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 21,
+          "class_name": "lamp",
+          "center_m": [
+            0.9050002098083496,
+            -0.6865646839141846,
+            1.737693428993225
+          ],
+          "size_m": [
+            0.26824361085891724,
+            1.177370548248291,
+            0.027802228927612305
+          ],
+          "face_count": 1909,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 22,
+        "class_name": "indoor-plant",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 22,
+          "class_name": "indoor-plant",
+          "center_m": [
+            1.3032844066619873,
+            -2.5809733867645264,
+            0.3497201204299927
+          ],
+          "size_m": [
+            0.9898027181625366,
+            1.225655436515808,
+            1.162419080734253
+          ],
+          "face_count": 15397,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 23,
+        "class_name": "plant-stand",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 23,
+          "class_name": "plant-stand",
+          "center_m": [
+            1.6081513166427612,
+            -2.856302261352539,
+            -0.6496738791465759
+          ],
+          "size_m": [
+            0.485335111618042,
+            0.5696768760681152,
+            0.9664220213890076
+          ],
+          "face_count": 6571,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 24,
+        "class_name": "wall",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 24,
+          "class_name": "wall",
+          "center_m": [
+            2.0213046073913574,
+            -0.6853521466255188,
+            0.2879922389984131
+          ],
+          "size_m": [
+            0.1720649003982544,
+            4.551246643066406,
+            2.866670846939087
+          ],
+          "face_count": 56687,
+          "role": "wall",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 25,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 25,
+          "class_name": "wall-plug",
+          "center_m": [
+            2.084738254547119,
+            -0.7472329139709473,
+            -0.7135907411575317
+          ],
+          "size_m": [
+            0.004647731781005859,
+            0.1256546974182129,
+            0.11521202325820923
+          ],
+          "face_count": 80,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 26,
+        "class_name": "wall",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 26,
+          "class_name": "wall",
+          "center_m": [
+            -2.9322457313537598,
+            -0.5102062821388245,
+            0.3133344054222107
+          ],
+          "size_m": [
+            0.43111395835876465,
+            3.7626547813415527,
+            2.824978828430176
+          ],
+          "face_count": 12638,
+          "role": "wall",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 27,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 27,
+          "class_name": "wall-plug",
+          "center_m": [
+            1.7456120252609253,
+            -0.34556978940963745,
+            -0.6966918706893921
+          ],
+          "size_m": [
+            0.01961064338684082,
+            0.06213700771331787,
+            0.09875786304473877
+          ],
+          "face_count": 40,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 30,
+        "class_name": "anonymize_picture",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 30,
+          "class_name": "anonymize_picture",
+          "center_m": [
+            1.9439560174942017,
+            -0.07685479521751404,
+            0.07733401656150818
+          ],
+          "size_m": [
+            0.00662684440612793,
+            1.2137751579284668,
+            0.6728198528289795
+          ],
+          "face_count": 4720,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 31,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 31,
+          "class_name": "wall-plug",
+          "center_m": [
+            2.087029218673706,
+            -0.5751123428344727,
+            -0.7165396809577942
+          ],
+          "size_m": [
+            0.005557060241699219,
+            0.08315044641494751,
+            0.09291291236877441
+          ],
+          "face_count": 42,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 33,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 33,
+          "class_name": "wall-plug",
+          "center_m": [
+            -1.7666562795639038,
+            -2.4348788261413574,
+            -0.7058589458465576
+          ],
+          "size_m": [
+            0.023541688919067383,
+            0.09063005447387695,
+            0.106839120388031
+          ],
+          "face_count": 55,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 34,
+        "class_name": "bin",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 34,
+          "class_name": "bin",
+          "center_m": [
+            1.4576442241668701,
+            -0.05306994915008545,
+            -0.9562606811523438
+          ],
+          "size_m": [
+            0.31702494621276855,
+            0.36386609077453613,
+            0.3883970379829407
+          ],
+          "face_count": 2875,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 35,
+        "class_name": "panel",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 35,
+          "class_name": "panel",
+          "center_m": [
+            1.697437047958374,
+            0.03096449375152588,
+            0.05922906845808029
+          ],
+          "size_m": [
+            0.06150627136230469,
+            0.12909865379333496,
+            0.13585694134235382
+          ],
+          "face_count": 110,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 36,
+        "class_name": "switch",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 36,
+          "class_name": "switch",
+          "center_m": [
+            1.6597373485565186,
+            -0.37915557622909546,
+            -0.19056765735149384
+          ],
+          "size_m": [
+            0.015104174613952637,
+            0.07953488826751709,
+            0.1073901355266571
+          ],
+          "face_count": 50,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 37,
+        "class_name": "lamp",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 37,
+          "class_name": "lamp",
+          "center_m": [
+            -0.6414761543273926,
+            -0.7045772671699524,
+            1.740215539932251
+          ],
+          "size_m": [
+            0.29103022813796997,
+            1.2072948217391968,
+            0.024595141410827637
+          ],
+          "face_count": 2018,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 39,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 39,
+          "class_name": "wall-plug",
+          "center_m": [
+            -1.8368186950683594,
+            -2.500523567199707,
+            -0.7045743465423584
+          ],
+          "size_m": [
+            0.011976122856140137,
+            0.09219145774841309,
+            0.10735523700714111
+          ],
+          "face_count": 55,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 45,
+        "class_name": "wall-plug",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 45,
+          "class_name": "wall-plug",
+          "center_m": [
+            2.0795397758483887,
+            -0.4639691114425659,
+            -0.7098022699356079
+          ],
+          "size_m": [
+            0.007424116134643555,
+            0.08168777823448181,
+            0.09659683704376221
+          ],
+          "face_count": 54,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 50,
+        "class_name": "switch",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 50,
+          "class_name": "switch",
+          "center_m": [
+            1.7020213603973389,
+            -0.47524771094322205,
+            0.0598994717001915
+          ],
+          "size_m": [
+            0.02367115020751953,
+            0.07788103818893433,
+            0.12613679468631744
+          ],
+          "face_count": 60,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 51,
+        "class_name": "wall",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 51,
+          "class_name": "wall",
+          "center_m": [
+            1.5766252279281616,
+            0.06973892450332642,
+            0.28921300172805786
+          ],
+          "size_m": [
+            0.4834110736846924,
+            3.8841094970703125,
+            2.866687297821045
+          ],
+          "face_count": 43344,
+          "role": "wall",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 52,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 52,
+          "class_name": "other-leaf",
+          "center_m": [
+            -0.5946226716041565,
+            0.13975170254707336,
+            -0.9452517032623291
+          ],
+          "size_m": [
+            0.0010347366333007812,
+            0.007128432393074036,
+            0.008961021900177002
+          ],
+          "face_count": 3,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 53,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 53,
+          "class_name": "other-leaf",
+          "center_m": [
+            -2.7028489112854004,
+            -2.1403651237487793,
+            -0.6477984189987183
+          ],
+          "size_m": [
+            0.00275421142578125,
+            0.050084590911865234,
+            0.035667598247528076
+          ],
+          "face_count": 15,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 56,
+        "class_name": "pillar",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 56,
+          "class_name": "pillar",
+          "center_m": [
+            -3.281459331512451,
+            -0.7528737783432007,
+            0.29866522550582886
+          ],
+          "size_m": [
+            0.09061074256896973,
+            0.17556118965148926,
+            2.840142250061035
+          ],
+          "face_count": 3858,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 57,
+        "class_name": "clock",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 57,
+          "class_name": "clock",
+          "center_m": [
+            2.067695140838623,
+            -0.7089701294898987,
+            0.9337125420570374
+          ],
+          "size_m": [
+            0.024308443069458008,
+            0.23707067966461182,
+            0.1830083131790161
+          ],
+          "face_count": 313,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 59,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 59,
+          "class_name": "other-leaf",
+          "center_m": [
+            -0.6670646667480469,
+            -0.8303414583206177,
+            1.6911795139312744
+          ],
+          "size_m": [
+            0.0015200376510620117,
+            0.009170591831207275,
+            0.012511253356933594
+          ],
+          "face_count": 8,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 60,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 60,
+          "class_name": "other-leaf",
+          "center_m": [
+            -2.7464802265167236,
+            -2.334599494934082,
+            -0.23551739752292633
+          ],
+          "size_m": [
+            0.0006299018859863281,
+            0.015238523483276367,
+            0.02114546298980713
+          ],
+          "face_count": 8,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 61,
+        "class_name": "chair",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 61,
+          "class_name": "chair",
+          "center_m": [
+            0.4183086156845093,
+            0.14526568353176117,
+            -0.7558320760726929
+          ],
+          "size_m": [
+            0.6850882768630981,
+            0.6229714155197144,
+            0.7539177536964417
+          ],
+          "face_count": 7666,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 62,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 62,
+          "class_name": "other-leaf",
+          "center_m": [
+            1.5324223041534424,
+            -1.4670443534851074,
+            -0.6727801561355591
+          ],
+          "size_m": [
+            0.0033386945724487305,
+            0.009943366050720215,
+            0.007316768169403076
+          ],
+          "face_count": 6,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 63,
+        "class_name": "floor",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 63,
+          "class_name": "floor",
+          "center_m": [
+            1.077034831047058,
+            -0.0480460524559021,
+            -1.1431725025177002
+          ],
+          "size_m": [
+            1.4676613807678223,
+            3.8895254135131836,
+            0.03528189659118652
+          ],
+          "face_count": 7791,
+          "role": "floor",
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 64,
+        "class_name": "tablet",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 64,
+          "class_name": "tablet",
+          "center_m": [
+            -0.4820626974105835,
+            -0.728785514831543,
+            -0.48203426599502563
+          ],
+          "size_m": [
+            0.22172483801841736,
+            0.24509912729263306,
+            0.06793656945228577
+          ],
+          "face_count": 230,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 65,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 65,
+          "class_name": "other-leaf",
+          "center_m": [
+            -2.327334403991699,
+            -2.368058681488037,
+            0.8362694978713989
+          ],
+          "size_m": [
+            0.008614301681518555,
+            0.015448808670043945,
+            0.007459700107574463
+          ],
+          "face_count": 4,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 66,
+        "class_name": "tv-screen",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 66,
+          "class_name": "tv-screen",
+          "center_m": [
+            2.0140795707702637,
+            -0.7203879356384277,
+            0.09936352074146271
+          ],
+          "size_m": [
+            0.15834736824035645,
+            2.5688085556030273,
+            1.1327106952667236
+          ],
+          "face_count": 12818,
+          "role": null,
+          "support_proxy": null
+        }
+      },
+      {
+        "object_id": 67,
+        "class_name": "other-leaf",
+        "score": 0.05,
+        "evidence": [
+          "semantic_mesh_faces_present"
+        ],
+        "features": {
+          "object_id": 67,
+          "class_name": "other-leaf",
+          "center_m": [
+            1.671839952468872,
+            -3.182784080505371,
+            -0.20677587389945984
+          ],
+          "size_m": [
+            0.0060558319091796875,
+            0.0002593994140625,
+            0.009812965989112854
+          ],
+          "face_count": 6,
+          "role": null,
+          "support_proxy": null
+        }
+      }
+    ]
+  }
+}

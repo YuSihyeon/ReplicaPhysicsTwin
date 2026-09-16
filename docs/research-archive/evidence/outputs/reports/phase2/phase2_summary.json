@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "xml_path": "${REPLICA_ROOT}\\outputs\\mjcf\\phase2_box_drop.xml",
+  "model": {
+    "timestep_s": 0.002,
+    "gravity_mps2": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "body_count": 2,
+    "geom_count": 2,
+    "mass_kg": 0.1
+  },
+  "drop": {
+    "passed": true,
+    "gravity_drop": true,
+    "contact_count": 1850,
+    "first_contact_step": 125,
+    "first_contact_time_s": 0.25000000000000017,
+    "floor_not_passed": true,
+    "stable_after_contact": true,
+    "freefall_match": true,
+    "max_freefall_error_m": 0.0024328800000006923,
+    "sim_time_monotonic": true,
+    "finite_state": true,
+    "initial_z_m": 0.35,
+    "min_z_m": 0.04578081625825888,
+    "rest_z_m": 0.05,
+    "final_z_m": 0.0499964149252073,
+    "tail_max_speed_mps": 1.023185815832567e-15,
+    "tail_max_position_error_m": 3.5850747927002047e-06,
+    "record_count": 2001,
+    "sim_time_final_s": 3.999999999999781,
+    "timestep_s": 0.002
+  },
+  "impulse": {
+    "body_name": "test_box",
+    "impulse_ns": [
+      0.1,
+      0.0,
+      0.0
+    ],
+    "velocity_after": [
+      1.0,
+      0.0,
+      -0.019620000000000002
+    ],
+    "velocity_delta_mps": [
+      1.0,
+      0.0,
+      -0.019620000000000002
+    ],
+    "expected_velocity_delta_mps": [
+      1.0,
+      0.0,
+      -0.019620000000000002
+    ],
+    "velocity_delta_error_mps": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "direction_ok": true,
+    "sim_time_monotonic": true,
+    "finite_state": true
+  },
+  "logs": {
+    "drop": "${REPLICA_ROOT}\\outputs\\reports\\phase2\\phase2_drop.jsonl",
+    "impulse": "${REPLICA_ROOT}\\outputs\\reports\\phase2\\phase2_impulse.jsonl"
+  },
+  "passed": true
+}

@@ -1,0 +1,19 @@
+schema_version: 1
+disclaimer: >-
+  Empty by default. Add a user override only when a value is intentionally
+  chosen for the experiment; measured values must be recorded under measured.
+
+user:
+  28:
+    movable: true
+    mass_kg: 0.6
+  44:
+    movable: true
+    mass_kg: 0.6
+  4:
+    movable: true
+    mass_kg: 8.0
+    sliding_friction: 0.6
+    torsional_friction: 0.005
+    rolling_friction: 0.001
+measured: {}

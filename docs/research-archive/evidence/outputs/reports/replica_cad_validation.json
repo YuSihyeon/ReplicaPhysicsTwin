@@ -1,0 +1,70 @@
+{
+  "dataset": "ReplicaCAD",
+  "source_url": "https://huggingface.co/datasets/ai-habitat/ReplicaCAD_dataset",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "dataset_root": "${REPLICA_ROOT}\\data\\raw\\replica_cad",
+  "scene_id": "apt_0",
+  "stage": {
+    "config": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\configs\\stages\\frl_apartment_stage.stage_config.json",
+    "render_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\stages\\frl_apartment_stage.glb",
+    "exists": true,
+    "up": [
+      0,
+      1,
+      0
+    ],
+    "friction_coefficient": 0.8,
+    "restitution_coefficient": 0.0
+  },
+  "object_templates": [
+    {
+      "template": "frl_apartment_box",
+      "config": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\configs\\objects\\frl_apartment_box.object_config.json",
+      "exists": true,
+      "missing": [],
+      "mass_kg": 3.1,
+      "center_of_mass": [
+        0,
+        0,
+        0
+      ],
+      "semantic_id": 15,
+      "render_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\frl_apartment_box.glb",
+      "collision_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\convex\\frl_apartment_box_cv_decomp.glb"
+    },
+    {
+      "template": "frl_apartment_rack_01",
+      "config": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\configs\\objects\\frl_apartment_rack_01.object_config.json",
+      "exists": true,
+      "missing": [],
+      "mass_kg": 3.6,
+      "center_of_mass": [
+        0,
+        0,
+        0
+      ],
+      "semantic_id": 66,
+      "render_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\frl_apartment_rack_01.glb",
+      "collision_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\convex\\frl_apartment_rack_01_cv_decomp.glb"
+    },
+    {
+      "template": "frl_apartment_chair_01",
+      "config": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\configs\\objects\\frl_apartment_chair_01.object_config.json",
+      "exists": true,
+      "missing": [],
+      "mass_kg": 22.0,
+      "center_of_mass": [
+        0,
+        0,
+        0
+      ],
+      "semantic_id": 20,
+      "render_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\frl_apartment_chair_01.glb",
+      "collision_asset": "${REPLICA_ROOT}\\data\\raw\\replica_cad\\objects\\convex\\frl_apartment_chair_01_cv_decomp.glb"
+    }
+  ],
+  "scene_instance_count": 113,
+  "missing": [],
+  "status": "ok"
+}

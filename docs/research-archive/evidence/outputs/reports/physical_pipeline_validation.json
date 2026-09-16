@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "project_root": "${REPLICA_ROOT}",
+  "physics_authority": "MuJoCo",
+  "automated_passed": true,
+  "property_provenance": {
+    "passed": true,
+    "dynamic_object_count": 3,
+    "required_fields_present": true,
+    "sources": {
+      "size_m": [
+        "oriented_bbox.abb.sizes"
+      ],
+      "density_kg_m3": [
+        "material_prior"
+      ],
+      "fill_factor": [
+        "material_prior"
+      ],
+      "mass_kg": [
+        "user_override"
+      ],
+      "inertia_diagonal_kg_m2": [
+        "derived_from_mass_kg_and_size_m"
+      ],
+      "movable": [
+        "user_override"
+      ],
+      "friction.sliding": [
+        "material_prior",
+        "user_override"
+      ],
+      "friction.torsional": [
+        "material_prior",
+        "user_override"
+      ],
+      "friction.rolling": [
+        "material_prior",
+        "user_override"
+      ],
+      "restitution": [
+        "material_prior"
+      ]
+    },
+    "status": "NEEDS_MEASUREMENT"
+  },
+  "scene_alignment": {
+    "passed": true,
+    "checks": [
+      {
+        "body": "chair_4",
+        "support": "floor",
+        "bottom_z_m": 0.0,
+        "support_top_z_m": 0.0,
+        "error_m": 0.0,
+        "passed": true
+      },
+      {
+        "body": "tissue_box",
+        "support": "desk_58",
+        "bottom_z_m": 0.6649268865585327,
+        "support_top_z_m": 0.6649268865585327,
+        "error_m": 0.0,
+        "passed": true
+      },
+      {
+        "body": "desk_organizer",
+        "support": "desk_58",
+        "bottom_z_m": 0.6649268865585327,
+        "support_top_z_m": 0.6649268865585327,
+        "error_m": 0.0,
+        "passed": true
+      }
+    ]
+  },
+  "compiled_scene": {
+    "passed": true,
+    "nbody": 7,
+    "ngeom": 20,
+    "njnt": 3,
+    "nmocap": 3,
+    "neq": 3
+  },
+  "contact_response": {
+    "body_name": "tissue_box",
+    "support_proxy": "desk_58",
+    "collision_shape": "mesh",
+    "rest_criterion": "support-contact-and-low-speed",
+    "initial_position_m": [
+      -0.479639232,
+      -0.236799568,
+      0.771064878
+    ],
+    "lifted_position_m": [
+      -0.479639232,
+      -0.236799568,
+      1.071064878
+    ],
+    "final_position_m": [
+      -0.34312936706870467,
+      -0.15413722511107728,
+      0.7372645290484026
+    ],
+    "lift_height_m": 0.3,
+    "first_contact_step": 125,
+    "first_contact_time_s": 0.25,
+    "first_contact_pairs": [
+      {
+        "body_geom": "tissue_box_geom",
+        "other_geom": "desk_58",
+        "distance_m": -0.004109999245948904
+      }
+    ],
+    "final_contact_pairs": [
+      {
+        "body_geom": "tissue_box_geom",
+        "other_geom": "desk_58",
+        "distance_m": -2.2663997216731957e-06
+      },
+      {
+        "body_geom": "tissue_box_geom",
+        "other_geom": "desk_58",
+        "distance_m": -2.2663997216731957e-06
+      },
+      {
+        "body_geom": "tissue_box_geom",
+        "other_geom": "desk_58",
+        "distance_m": -2.2663997216731957e-06
+      }
+    ],
+    "minimum_z_m": 0.7370709267611099,
+    "minimum_contact_distance_m": -0.004215965105966557,
+    "expected_rest_z_m": null,
+    "tail_max_speed_mps": 0.003872415540181453,
+    "tail_max_z_error_m": null,
+    "tail_minimum_contact_distance_m": -2.3363840153667326e-06,
+    "tail_has_declared_support_contact": true,
+    "final_has_declared_support_contact": true,
+    "passed": true
+  },
+  "reset_reproducibility": {
+    "passed": true,
+    "max_final_position_delta_m": 0.0
+  },
+  "bridge_mapping": {
+    "passed": true,
+    "physics_authority": "MuJoCo",
+    "scene_id": "office_0",
+    "group_grab": {
+      "passed": true,
+      "object_ids": [
+        "tissue_box",
+        "desk_organizer",
+        "chair_4"
+      ],
+      "movement_m": {
+        "tissue_box": 0.1984346220339305,
+        "desk_organizer": 0.19962394573126493,
+        "chair_4": 0.13765489759184596
+      },
+      "state_objects_have_contacts": true,
+      "state_objects_have_properties": true
+    }
+  },
+  "unreal_evidence": {
+    "status": "NEEDS_USER_VERIFICATION",
+    "reason": "Unreal Play screen and log require a live editor check after the Development build."
+  }
+}

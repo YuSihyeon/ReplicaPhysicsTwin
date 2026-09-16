@@ -1,0 +1,25 @@
+project:
+  name: ReplicaPhysicsTwin
+  current_stage: replica_cad_interaction
+
+scene:
+  dataset: ReplicaCAD
+  scene_id: apt_0
+  segmentation_source: dataset_scene_config
+
+paths:
+  raw_data: data/raw/replica_cad
+  processed_data: data/derived/replica_cad
+  meshes: outputs/replica_cad/meshes
+  metadata: outputs/replica_cad/metadata
+  mjcf: outputs/replica_cad/mjcf
+  reports: outputs/replica_cad/reports
+  unreal: unreal
+
+pipeline:
+  dynamic_object_count_min: 3
+  dynamic_object_count_max: 3
+  include_robot: false
+  enable_object_recognition: false
+  enable_open3dis: false
+  physics_values_are_measured: false

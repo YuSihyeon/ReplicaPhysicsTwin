@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "phase": 6,
+  "xml_path": "${REPLICA_ROOT}\\outputs\\mjcf\\office0_tissue_box.xml",
+  "object_id": "tissue_box",
+  "source_object_id": 28,
+  "support_proxy": "desk_58",
+  "lift_height_m": 0.3,
+  "lift_height_error_m": 4.899292638249619e-10,
+  "initial_clearance_m": 0.30000000048992925,
+  "first_contact_step": 125,
+  "contact_geom_names": [
+    "desk_58"
+  ],
+  "final_position_m": [
+    -0.479639232,
+    -0.23680311817292424,
+    0.7710612573757604
+  ],
+  "rest_z_m": 0.7710648775100708,
+  "final_position_error_m": 3.6201343104336203e-06,
+  "final_speed_mps": 5.515003567673117e-09,
+  "finite_state": true,
+  "record_count": 3001,
+  "trace_path": "${REPLICA_ROOT}\\outputs\\reports\\phase6\\phase6_tissue_box_lift_drop.jsonl",
+  "passed": true
+}

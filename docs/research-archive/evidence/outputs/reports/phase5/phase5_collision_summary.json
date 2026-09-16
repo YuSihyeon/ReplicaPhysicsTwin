@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "xml_path": "${REPLICA_ROOT}\\outputs\\mjcf\\office0_collision_proxy.xml",
+  "model": {
+    "timestep_s": 0.002,
+    "gravity_mps2": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "body_count": 4,
+    "geom_count": 20,
+    "fixed_proxy_count": 17
+  },
+  "max_steps": 3000,
+  "drops": [
+    {
+      "body_name": "drop_floor",
+      "support_proxy": "floor",
+      "initial_position_m": [
+        0.6600001573562624,
+        -1.2524571418762207,
+        1.2
+      ],
+      "initial_z_m": 1.2,
+      "min_z_m": 0.045303004409130584,
+      "final_position_m": [
+        0.660000157,
+        -1.25245714,
+        0.0499964149252073
+      ],
+      "expected_support_z_m": 0.05,
+      "final_position_error_m": 3.5850747927002047e-06,
+      "final_speed_mps": 9.69395770790032e-16,
+      "first_contact_step": 243,
+      "contact_geom_names": [
+        "floor"
+      ],
+      "finite_state": true,
+      "passed": true
+    },
+    {
+      "body_name": "drop_desk_12",
+      "support_proxy": "desk_12",
+      "initial_position_m": [
+        1.5205895900726318,
+        0.18226784467697144,
+        1.2375746726989747
+      ],
+      "initial_z_m": 1.23757467,
+      "min_z_m": 0.6860935109801184,
+      "final_position_m": [
+        1.52058959,
+        0.182267845,
+        0.6875710880252072
+      ],
+      "expected_support_z_m": 0.6875746726989747,
+      "final_position_error_m": 3.5846737674871676e-06,
+      "final_speed_mps": 1.5433055437110017e-14,
+      "first_contact_step": 168,
+      "contact_geom_names": [
+        "desk_12"
+      ],
+      "finite_state": true,
+      "passed": true
+    },
+    {
+      "body_name": "drop_desk_58",
+      "support_proxy": "desk_58",
+      "initial_position_m": [
+        -0.7126085180789232,
+        0.3449370265007019,
+        1.2649268865585328
+      ],
+      "initial_z_m": 1.26492689,
+      "min_z_m": 0.71344572944871,
+      "final_position_m": [
+        -0.712608518,
+        0.344937027,
+        0.714923301825207
+      ],
+      "expected_support_z_m": 0.7149268865585328,
+      "final_position_error_m": 3.5847333257343905e-06,
+      "final_speed_mps": 2.3984344950213063e-14,
+      "first_contact_step": 168,
+      "contact_geom_names": [
+        "desk_58"
+      ],
+      "finite_state": true,
+      "passed": true
+    }
+  ],
+  "passed": true
+}
