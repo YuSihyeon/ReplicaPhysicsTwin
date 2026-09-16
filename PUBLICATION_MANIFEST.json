@@ -56,13 +56,18 @@
   },
   {
     "path": "README.md",
-    "bytes": 4288,
-    "sha256": "3244edd626a259a1df91a77c8ceb53d3aedb455cc3897055cac6b8be7e8d8c1c"
+    "bytes": 18446,
+    "sha256": "bd0c6c9d016808639d0794d78fe97c45724b9651ce86c2f81776757744c7111f"
   },
   {
     "path": "REPLICA_CAD_IMPLEMENTATION_REPORT.md",
     "bytes": 4949,
     "sha256": "5cbdf931a8a6eb739d04675ba1f37093d7ba3b04669e937bdbcc116606d69fa9"
+  },
+  {
+    "path": "RESEARCH_REPORT.md",
+    "bytes": 4288,
+    "sha256": "3244edd626a259a1df91a77c8ceb53d3aedb455cc3897055cac6b8be7e8d8c1c"
   },
   {
     "path": "UNREAL_PHYSICAL_PIPELINE_CHECKLIST.md",
