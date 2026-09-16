@@ -1,200 +1,129 @@
 # Replica Physics Twin
 
-**Replica의 스캔 공간과 ReplicaCAD의 객체 자산을 MuJoCo 물리·Unreal 시각화에 연결한 상호작용 연구.**
+스캔한 방에서 물체가 보인다는 것과 그 물체를 집거나 밀 수 있다는 것은 서로 다른 문제다. 방 전체를 표현하는 메시에는 움직일 물체의 경계, 충돌을 계산할 형상, 질량과 마찰의 출처가 함께 주어지지 않는다. 이 연구는 Replica `office_0`에서 휴지곽 후보를 분리하는 작업으로 시작해, ReplicaCAD `apt_0`의 자전거와 의류를 MuJoCo 물리 및 Unreal Engine 5.7의 표시·입력에 연결했다. 중심 과제는 **공간의 외관에서 출발해, 객체의 정체성과 물리 상태를 추적할 수 있는 상호작용 환경을 만드는 것**이었다.
 
-[영상](#영상과-설명) · [연구 질문](#연구-질문과-목표) · [구현](#구현-과정) · [결과](#결과와-분석) · [재현](#재현과-자료-안내) · [이전 README 전문](RESEARCH_REPORT.md) · [상세 한국어 보고서](docs/research-archive/README.ko.md)
+[<img src="docs/research-archive/media/replica-poster.jpg" width="820" alt="ReplicaCAD 실내에서 자전거의 위치 변화와 매달린 의류의 변형을 보여주는 시연 장면">](docs/research-archive/media/replica-demo-preview.mp4)
 
-## 프로젝트 개요
+*그림 1. [자전거·의류 상호작용 기록](docs/research-archive/media/replica-demo-preview.mp4). 자전거의 이동과 매달린 의류의 형상 변화를 한 장면에 연결한 결과다. 자전거는 강체 상태를, 의류는 flex 정점의 변형을 Unreal 표시 메시로 전달한다. [원본 영상](docs/research-archive/media/replica-demo-original.mp4)은 2560 × 1368, 14 FPS, 97 frames, 약 6.93초이며 원본 파일명에 `reverse`가 포함되어 있다. 따라서 보이는 동작은 구현 결과를 보여주지만, 순방향 물리 시간·충격량·실시간 처리 속도를 이 영상에서 산출하지 않는다. 원본 대응은 [미디어 기록](docs/research-archive/MEDIA.md)에 남아 있다.*
 
-정적인 공간 메시에서 움직일 객체를 선별하고, 시각 형상·충돌체·물성 출처를 연결해 사용자가 힘을 가할 수 있는 환경을 구성했다.
-MuJoCo가 물리를 계산하고 **Unreal Engine 5.7이 표시와 입력을 담당**한다. 동적 객체의 상태를 두 엔진이 각각 계산하지 않도록 역할을 나눈다.
+현재 확인된 성과는 원본 객체·시각 형상·충돌체·물성 출처·사용자 힘 입력을 연결한 구조다. 물리적 정확도의 근거는 별도로 살펴야 한다. 단순 박스 검증과 과거 CAD 보고서에는 통과 기록이 있지만, **2026-09-16 현재 생성 모델의 재검증은 자전거 낙하 판정에서 실패했다.** 이 불일치까지 포함해 무엇이 성립했고 무엇을 다시 조사해야 하는지 설명한다.
 
-| 항목 | 내용 |
-|---|---|
-| 입력 | 초기 Replica `office_0` 스캔, 후속 ReplicaCAD `apt_0` CAD 장면 |
-| 조작 대상 | 현재 자전거 `bike_02` 1개와 의류 `cloth_01`, `cloth_02` 2개 |
-| 핵심 구현 | Python 장면 컴파일러, MJCF·물리 manifest, TCP/NDJSON bridge, Unreal C++ 표시·입력 |
-| 현재 생성물 | 337 bodies / 150 geoms / 2 flexes / 224 flex vertices |
-| 현재 검증 | **2026-09-16 재검증 FAIL:** 자전거 낙하 판정 미통과 |
-| 결과의 범위 | 재현 가능한 연결 구조와 상호작용 시연. 실제 사물 물성의 측정·동일성 검증은 미완료 |
-| 읽기 기준 | 과거 보고서, 현재 생성 파일, 재검증, 후속 제안을 구분 |
+## 휴지곽 하나를 움직이기 위해 먼저 풀어야 했던 문제
 
-## 영상과 설명
+[초기 환경 보고서](ENVIRONMENT_REPORT.md)는 `office_0`의 `tissue_box`를 최소 구현 대상으로 정하고, MuJoCo가 중력·충돌·마찰·강체 상태를 계산하며 Unreal은 표시와 입력을 맡도록 명시했다. 이것이 당시 문서로 확인되는 목표다. 스캔 전체를 즉시 물리 환경으로 전환하기보다 한 객체를 골라 데이터 분리, 공간 정렬, 물리 계산, 입력 반환을 끝까지 연결하는 구성이었다.
 
-아래 이미지는 기존 영상의 실제 미리보기다. 제목이나 이미지를 누르면 MP4를 열 수 있다.
+이 목표를 구현하려면 서로 다른 세 가지 판단이 필요했다. 첫째는 어떤 면들이 실제 조작 대상에 속하는지 정하는 객체 식별이다. 둘째는 그 면들을 그대로 충돌에 사용할지, 단순한 계산용 형상으로 바꿀지 정하는 기하 근사다. 셋째는 질량·관성·접촉 계수를 어느 자료에 근거해 넣을지 정하는 물성 설정이다. 객체가 화면에서 자연스럽게 움직여도 이 세 판단의 근거가 없으면, 그 동작을 실제 사물의 재현이라고 설명하기 어렵다. 초기 목표와 후속 코드를 종합하면, 이 연구는 객체 식별·기하 근사·물성 설정의 근거를 서로 연결하는 문제로 해석할 수 있다.
 
-[<img src="docs/research-archive/media/replica-poster.jpg" width="820" alt="ReplicaCAD 자전거와 의류 상호작용 영상 프레임">](docs/research-archive/media/replica-demo-preview.mp4)
+물리 계산 주체를 MuJoCo 하나로 둔 선택도 같은 맥락에 있다. Unreal에서 같은 객체에 Chaos physics를 적용하면 MuJoCo가 계산한 자세와 표시 엔진이 계산한 자세가 달라질 수 있다. 이 연구에서는 동적 객체의 Chaos physics를 끄고 MuJoCo 상태를 표시한다. 사용자의 드래그도 화면 좌표를 곧바로 새 물체 위치로 적용하는 대신 물리 입력으로 되돌린다. 이 분리는 단순한 엔진 조합을 넘어, 보이는 움직임의 원인을 한 계산 경로에서 찾기 위한 조건이다. [물리 파이프라인 보고서](PHYSICAL_PIPELINE_REPORT.md)에 초기 연결 구조가 남아 있다.
 
-| 영상 | 관찰할 내용 | 해석 범위 |
-|---|---|---|
-| [**자전거·의류 물리 시연 · 미리보기 MP4**](docs/research-archive/media/replica-demo-preview.mp4) | 약 6.93초 동안 자전거 이동과 의류 변형 | 보이는 동작의 시연 |
-| [원본 MP4](docs/research-archive/media/replica-demo-original.mp4) · [미디어 상세](docs/research-archive/MEDIA.md) | 원본 2560 × 1368, 14 FPS, 97 frames | 원본 파일명에 `reverse`가 있어 순방향 물리 시간·실시간 처리 성능을 확정할 수 없음 |
+## 스캔의 이름과 실제 형상을 대조하면서 바뀐 객체 선정
 
-영상의 의류 변형과 현재 생성 모델의 수치 검증은 서로 다른 근거다.
-시연이 존재한다는 사실을 현재 낙하 검증의 통과나 모든 재질의 물리 정확도로 해석하지 않는다.
+### `office_0`: semantic label만으로는 충분하지 않았다
 
-## 연구 질문과 목표
+초기 입력 조사에서는 `office_0`의 19개 파일, 약 1.00GB를 확인했다. 원본 메시에는 589,517 vertices와 588,759 polygon faces가 있었고, 변환한 시각 메시에는 1,177,518 triangles가 기록되어 있다. polygon face 수를 triangle 수로 읽지 않도록 구분한 것은 이후 객체 추출과 표시 결과가 원자료에 대응하는지 확인하기 위한 기초였다. 입력 구조와 변환 수치는 [데이터 보고서](DATASET_REPORT.md)에 보존되어 있다.
 
-핵심 질문은 **“스캔 공간에서 무엇을 조작 가능한 객체로 선택하고, 형상·질량·접촉·입력을 어떤 근거로 연결할 것인가?”**이다.
-이 문장은 설계와 코드에서 정리한 연구 해석이며, 별도로 확인한 개인적 동기의 인용은 아니다.
+조작 후보는 semantic class `tissue-paper`, instance ID 28에서 출발했다. 이 후보를 `tissue_box`로 시험한 것은 데이터에 실제 존재하는 분할 결과를 이용한 제한적 실험이다. 모든 스캔 물체를 자동 인식했다는 의미는 없다. 반대로 책장은 조사한 semantic inventory에서 해당 instance를 찾지 못했다. 초기 화면에 나타난 자홍색 `bookcase_49` proxy는 `undefined` geometry에 책장이라는 이름을 잘못 부여한 결과였고, 이후 제거되었다. 이 수정의 핵심은 표시상의 그럴듯함보다 원본 식별 정보와의 일치를 우선한 데 있다.
 
-| 질문 | 구현에서 취한 접근 | 확인할 기준 |
-|---|---|---|
-| 어떤 객체를 움직일 것인가? | semantic/instance와 dataset scene config에서 실제 후보 선별 | 객체 이름·원본 ID·형상 경로의 대응 |
-| 보이는 형상을 그대로 충돌체로 써도 되는가? | render mesh와 collision geometry 분리 | 충돌체 출처, 오목 구조·얇은 면의 근사 영향 |
-| 물성 값은 어디에서 왔는가? | 제공값·유도값·실험 가정값을 manifest에 기록 | source mass와 MuJoCo 질량의 일치, 미측정 값 표시 |
-| 사용자 입력이 물리 상태에 반영되는가? | 선택·드래그·impulse를 bridge 명령으로 전달 | MuJoCo 상태 변화와 Unreal 표시의 일관성 |
-| 다시 실행해도 성립하는가? | 단순 박스 검증과 장면 검증을 분리 | 환경·모델·판정 기준을 함께 보존 |
+벽에서도 이름만으로 충돌체를 확정할 수 없었다. `wall_18`의 실제 labeled geometry는 약 0.017 × 0.010 × 0.538m의 얇은 요소였으므로 큰 벽을 대표하는 충돌체에서 제외했다. 책상에는 다른 문제가 있었다. 가구 전체의 축 정렬 경계 상자(AABB)를 쓰면 상판 아래의 빈 공간까지 막을 수 있다. 따라서 상단의 근수평 face band를 추출해 얇은 상판 box로 바꾸었다. [충돌 분석 코드](src/replica_physics_twin/office0_collision.py)와 [Phase 5 보고서](PHASE5_COLLISION_REPORT.md)는 이 수정이 미관 조정보다 **보이는 공간과 실제 접촉 공간의 불일치**를 줄이는 작업이었음을 보여준다.
 
-초기 목표는 `office_0`의 휴지곽 후보를 분리하는 것이었다. 후속 구현은 객체별 자산·배치·질량 정보가 있는 ReplicaCAD로 범위를 확장했다.
-두 입력은 동일 장면의 전후 버전이 아니므로, 한 데이터셋에서 일관되게 개선한 정량 실험으로 비교하지 않는다.
+Phase 5에는 바닥·벽·책상 proxy의 정렬 검사와 세 개 낙하 probe의 접촉·정지, 최종 지지면 높이 오차 약 `3.6e-6m`가 기록되어 있다. 같은 보고서의 `24 passed` 역시 당시 코드·장면에 대한 테스트 기록이다. 이는 선별한 지지면과 probe의 관계를 확인한 결과이며, 방 안의 모든 가구 형상을 정밀하게 복원했다는 평가로 넓힐 수 없다. [휴지곽 보고서](PHASE6_TISSUE_BOX_REPORT.md)와 [실행 기록](docs/research-archive/evidence/RUN_LOG.md)에는 이후 동적 객체와 상호작용 단계가 이어진다.
 
-## 수행 내용과 기여 범위
+### `apt_0`: 원하는 물체 이름보다 출처가 연결되는 자산을 선택했다
 
-이 저장소의 기여는 공개 엔진과 데이터셋을 연결하고, 객체 선별·좌표 변환·물성 추적·상호작용을 검토 가능한 코드와 보고서로 남긴 데 있다.
-Replica/ReplicaCAD 자산, MuJoCo 엔진, Unreal 엔진 자체의 제작을 연구의 독자 성과로 소개하지 않는다.
+ReplicaCAD로 넘어가면서 입력의 성격이 달라졌다. 스캔 공간의 semantic 면에서 객체를 떼어내는 대신, 객체별 render GLB·collision GLB·scene/object config를 읽어 원래 배치와 물성 metadata를 연결할 수 있었다. [CAD 구현 보고서](REPLICA_CAD_IMPLEMENTATION_REPORT.md)는 해당 장면에 정확한 휴지곽·정리함 template이 없다고 기록한다. 후속 실험은 primitive에 그 이름을 붙이는 대신 장면에 실제 존재하는 자전거 `bike_02`와 의류 `cloth_01`, `cloth_02`를 선택했다.
 
-| 구분 | 이 연구에서 수행·구성한 내용 | 근거 |
-|---|---|---|
-| 장면 처리 | 입력 자산과 설정을 읽고 물리·시각 출력을 생성 | [컴파일러](src/replica_physics_twin/replica_cad_scene.py), [빌드 진입점](scripts/build_replica_cad_pipeline.py) |
-| 객체·충돌 선별 | office_0 후보 검사, 벽·책상 proxy 조정, CAD 충돌 자산 반영 | [충돌 분석 코드](src/replica_physics_twin/office0_collision.py), [충돌 보고서](PHASE5_COLLISION_REPORT.md) |
-| 물성 연결 | mass 출처와 inertia·재질 가정을 명시 | [물성 처리](src/replica_physics_twin/physical_properties.py), [현재 manifest 요약](docs/research-archive/evidence/inspected-manifest-summary.json) |
-| 상호작용 통합 | 상태 송신, 선택·힘·reset 명령, Unreal 입력과 표시 | [bridge](src/replica_physics_twin/bridge_server.py), [Unreal 프로젝트](unreal) |
-| 검증·기록 | 단순 물리 검증, 장면 검사, 과거/현재 불일치와 실패 보존 | [박스 검증](PHYSICS_VALIDATION_REPORT.md), [현재 오류](docs/research-archive/evidence/reverified-physics-2026-09-16.json) |
-| 외부 기반 | 스캔/CAD 형상과 원 metadata, 물리 solver, 시각화 엔진 | 원저작권·라이선스 및 데이터 출처 유지 |
+이 선택으로 질문도 구체화되었다. 자전거에서는 복잡한 외관과 강체 충돌 표현의 대응을, 의류에서는 강체 자세만으로 표현할 수 없는 변형을 다룬다. 두 종류의 물체를 포함한 구조는 강체 pose와 변형 정점을 서로 다른 상태로 전송해야 한다는 구현상의 차이를 드러낸다. 다만 이 점을 두 입력 데이터셋의 성능 비교로 해석할 수는 없다. `office_0` 스캔과 `apt_0` CAD 장면은 동일 장면의 전후 버전이 아니며, 객체와 모델링 조건도 달라졌다.
 
-현재 [설정](configs/pipeline.yaml)은 `enable_object_recognition=false`, `enable_open3dis=false`, `physics_values_are_measured=false`다.
-현재 결과는 dataset scene config를 이용하며, 새로운 영상 기반 객체 인식·물성 자동 추정의 검증 결과는 아니다.
+선택하지 않은 110개 객체는 정적 환경으로 사용했다. 이 가운데 81개에는 데이터셋의 convex-decomposition 충돌 자산을, 29개에는 해당 object config가 요구한 bounding-box 방식을 적용했다. room shell은 별도의 바닥·천장·벽 proxy로 구성했다. 방 전체처럼 오목한 공간을 하나의 볼록 충돌체로 처리하면 내부의 빈 공간을 보존하기 어렵기 때문이다. 따라서 시각 메시의 세밀함과 충돌 표현의 계산 가능성을 분리하되, 어느 근사를 어디에 썼는지 남기는 것이 중요했다.
 
-## 데이터와 선정 과정
+현재 [pipeline 설정](configs/pipeline.yaml)의 `enable_object_recognition=false`, `enable_open3dis=false`, `physics_values_are_measured=false`는 이 결과의 범위를 분명히 한다. 현재 객체 선정은 dataset scene config를 사용한다. 새로운 영상에서 객체를 인식하거나, 외관으로부터 물성을 자동 추론한 결과를 평가한 구성은 아니다.
 
-| 자료 | 실제 사용한 정보 | 선택 이유와 제한 |
-|---|---|---|
-| Replica `office_0` | 공간 PLY, semantic/instance, 배치 | 스캔 공간의 객체 분리 가능성을 시험. 명칭이 없거나 의미가 모호한 후보 존재 |
-| ReplicaCAD `apt_0` | 객체별 render GLB, collision GLB, scene/object config | 시각·충돌·질량 출처를 객체 단위로 연결. 실제 연구실 사물 측정치는 아님 |
-| 현재 선택 객체 | bike_02 9.0kg / cloth_01 2.0kg / cloth_02 0.6kg | scene에 실제 존재하는 객체와 source mass 사용 |
-| 정적 환경 | 선택 객체 이외 110개와 room shell | 81개 convex decomposition, 29개 bounding box; room shell은 별도 proxy |
+## 복잡한 장면을 넣기 전에 낙하·접촉·힘을 따로 검증한 이유
 
-`office_0` 조사에는 19개 파일, 약 1.00GB가 포함되었다. 원본 메시의 589,517 vertices와 588,759 polygon faces를 확인했다.
-polygon과 triangle을 구분해 변환했으며, 시각 메시 결과는 1,177,518 triangles로 기록되어 있다. [데이터 보고서](DATASET_REPORT.md)
+공간 충돌체, 통신, 좌표계가 한꺼번에 들어가면 물체가 잘못 움직일 때 어느 부분이 원인인지 분리하기 어렵다. 초기 검증은 그래서 0.1kg 박스 하나로 중력 낙하와 접촉 정착, impulse 응답을 확인했다. 박스의 반높이는 0.05m, 초기 중심 높이는 0.35m, timestep은 0.002s, 중력은 −9.81m/s²였다. 바닥에서 30cm 위에 있는 박스를 떨어뜨리는 조건이며, 목표 rest 중심은 0.05m다.
 
-| 후보·문제 | 선택 또는 제외 | 판단의 의미 |
-|---|---|---|
-| `tissue-paper` ID 28 | 초기 `tissue_box` 후보로 시험 | 데이터의 semantic 후보에서 출발한 제한적 실험 |
-| 책장 | 일치하는 semantic instance가 없어 제외 | 원하는 이름을 모호한 객체에 임의로 부여하지 않음 |
-| `undefined` 자홍색 proxy | 책장으로 잘못 승격한 표시 제거 | 시각적 편의를 객체 식별 증거로 사용하지 않음 |
-| `wall_18` | 약 0.017 × 0.010 × 0.538m의 얇은 요소여서 벽 충돌에서 제외 | 큰 벽을 기대하는 proxy 규칙에 맞지 않음 |
-| 책상 충돌 | 가구 전체 AABB 대신 상단 근수평 면 band 사용 | 빈 공간을 가로막는 과도한 충돌체 축소 |
-| CAD 휴지곽·정리함 | 정확한 template이 없어 자전거·의류로 전환 | primitive에 원하지 않는 실물 이름을 붙이지 않음 |
+| 검증 항목 | 저장된 결과 | 이 조건에서 확인한 의미 |
+|---|---:|---|
+| 첫 접촉 시각 | 약 0.25s | 낙하 후 바닥 접촉이 발생 |
+| 최대 바닥 기준 중심 오차 | 4.22mm | 당시 5mm 허용치를 만족 |
+| 최종 중심 높이 | 0.0499964m | 이상적 rest 높이에 근접 |
+| +X 방향 0.1 N·s impulse의 Δv | 1.0m/s | `J/m = 0.1/0.1`과 일치 |
+| `solref` 0.02 / 0.01 / 0.005s | 침투 17.02 / 8.43 / 4.22mm | 같은 단순 모델에서 접촉 시간상수 변화의 영향 |
 
-선별·제외의 근거는 [충돌 보고서](PHASE5_COLLISION_REPORT.md), [휴지곽 보고서](PHASE6_TISSUE_BOX_REPORT.md), [CAD 구현 보고서](REPLICA_CAD_IMPLEMENTATION_REPORT.md)에 남아 있다.
+이 표는 [Phase 2 물리 검증 보고서](PHYSICS_VALIDATION_REPORT.md)에 저장된 과거 결과다. 접촉 시간상수를 줄였을 때 침투가 줄어든 비교는 동일한 박스 모델의 수치 응답을 설명한다. 실물 휴지곽의 재료를 측정하거나 자전거·의류의 움직임을 교정한 실험은 아니다. 단순한 검증을 먼저 둔 의미는 힘과 단위, 접촉 응답의 기준점을 확보하는 데 있으며, 복잡한 장면에 그 정확도가 자동으로 이어진다고 가정하는 데 있지 않다.
 
-## 구현 과정
+상호작용에서도 초기 상태의 의미를 분리해야 했다. reset이 30cm 들어 올린 위치로 돌아가던 문제는 rest 위치와 lift 명령을 구분하는 방식으로 수정되었다. reset은 기준 장면의 복원이고 lift/drop은 낙하를 유발하는 실험 입력이므로, 두 기능이 같은 높이를 공유하면 사용자가 본 상태와 검증한 초기 조건이 어긋난다. 이 수정은 초기 상호작용에 대한 기록이며 뒤에서 다루는 현재 자전거 낙하 실패가 해결되었다는 근거는 아니다.
 
-### 1. 단순 물리에서 공간 상호작용으로
+## 원본 자산에서 물리 상태와 화면까지 이어지는 경로
 
-| 순서 | 수행 내용 | 분리해 확인한 문제 |
-|---|---|---|
-| 1 | 0.1kg 박스 낙하·정착·0.1 N·s impulse | 엔진, 단위, 접촉 응답과 힘 계산 |
-| 2 | MuJoCo → TCP/NDJSON → Unreal 상태 전달 | 통신과 좌표/scale |
-| 3 | office_0 시각 메시와 정적 충돌 proxy 생성 | 보이는 공간과 충돌 공간의 차이 |
-| 4 | 휴지곽·정리함·의자 후보의 선택과 힘 입력 | 객체별 상태·물성·입력 대응 |
-| 5 | ReplicaCAD source geometry와 설정 기반 컴파일 | 원본 자산에서 생성물까지의 추적성 |
-| 6 | 의류 flex와 Unreal 표시 메시 변형 연결 | 강체 자세와 변형 정점의 구분 |
+### 장면 컴파일러가 형상·배치·물성의 대응을 만든다
 
-초기 reset이 30cm 들어 올린 위치로 돌아가던 문제는 rest 위치와 lift 명령을 분리해 수정한 기록이 있다.
-이는 초기 상호작용의 수정 이력이며 현재 자전거 낙하 검증 실패의 해결 기록은 아니다.
-
-### 2. 입력부터 화면까지
+[Python 장면 컴파일러](src/replica_physics_twin/replica_cad_scene.py)는 ReplicaCAD의 GLB와 설정을 읽어 MJCF, 충돌 메시, 물리 manifest, Unreal 표시용 메시를 생성한다. [빌드 진입점](scripts/build_replica_cad_pipeline.py)을 통하면 같은 처리 규칙을 다시 적용할 수 있다. 서로 다른 프로그램에서 객체를 수작업으로 다시 배치하기보다 입력 자산에서 두 엔진의 출력을 함께 만드는 구조다.
 
 ```text
-ReplicaCAD GLB / scene config / object config
-  → Python: 객체 선택·좌표 변환·물성 출처 기록
-  → MJCF + 충돌 메시 + 물리 manifest + 시각 메시
-  → MuJoCo: 중력·접촉·마찰·flex·입력 힘 계산
-  → TCP / NDJSON: 순번·시각·pose·속도·접촉 전달
-  → Unreal: procedural mesh 표시·카메라·선택 UI
-  → 사용자 명령을 bridge로 반환
+ReplicaCAD render/collision GLB + scene/object config
+  → 객체 선택 · 좌표 변환 · source mass와 물성 가정 기록
+  → MJCF / 충돌 메시 / 물리 manifest / Unreal 시각 메시
+  → MuJoCo의 강체·접촉·마찰·flex 계산
+  → TCP/NDJSON으로 pose·속도·접촉·변형 상태 전달
+  → Unreal 표시와 사용자 선택·힘 입력
+  → 명령을 MuJoCo bridge에 반환
 ```
 
-ReplicaCAD의 Y-up 좌표는 `[x,y,z] → [x,-z,y]`로 Z-up에 맞춘다. 물리는 m, Unreal 표시 교환은 cm를 사용한다.
-기본 연결은 `127.0.0.1:7007`, 상태 publication 설정은 60Hz다. **60Hz 설정은 측정한 전체 시스템 60 FPS를 뜻하지 않는다.**
-상태 순번·잘못된 명령·재접속을 처리하고, Unreal 동적 객체의 Chaos physics를 꺼서 물리 계산 주체를 MuJoCo로 유지한다.
-[초기 프로토콜](PROTOCOL.md)과 [현재 bridge 구현](src/replica_physics_twin/bridge_server.py)을 함께 읽어 단계별 차이를 확인할 수 있다.
+ReplicaCAD의 Y-up 좌표는 `[x,y,z] → [x,-z,y]`로 Z-up에 맞춘다. 물리 계산은 m, Unreal 표시 교환은 cm를 사용한다. 이 변환은 초기 `office_0`의 translation 정규화와 별도 경로다. 같은 장면을 쓰더라도 회전축이나 길이 단위가 어긋나면 시각 메시와 충돌체가 다른 곳에 놓이므로, 두 출력이 같은 원본 변환을 공유해야 한다.
 
-### 3. 강체와 천, 그리고 입력
+기본 bridge 주소는 `127.0.0.1:7007`이며 상태 publication 설정은 60Hz다. 전달 상태에 순번과 simulation time을 두고, pose·속도·접촉 및 물성 출처를 연결하며 잘못된 명령과 재접속을 처리한다. [초기 프로토콜](PROTOCOL.md)과 [현재 bridge 구현](src/replica_physics_twin/bridge_server.py)은 단계별 계약을 확인할 근거다. 60Hz는 전송 설정이고 전체 시스템에서 측정한 60 FPS나 지연 보장치는 아니다. 송수신 timestamp에 따른 지연 분포와 오래된 상태의 비율은 별도 계측 과제로 남아 있다.
 
-자전거는 원본 render/collision 자산을 이용한다. 의류는 2D flex grid와 hanging-edge constraint로 표현하고, 표시 메시를 flex 변형에 대응시킨다.
-질량은 source config 제공값, inertia는 collision bounds 유도값이다. 천의 탄성·두께·damping·drag 계수는 실험용 가정값이다.
-현재 의류 grid는 각각 8 × 14 = 112개 정점이며, 과거 보고서의 각 240개와 다르다.
+### 질량을 보존하는 것과 물성을 측정하는 것은 구분해야 한다
 
-| 조작 | 행동 |
-|---|---|
-| 클릭 / Shift+클릭 | 단일 선택 / 선택 집합 추가·제거 |
-| 클릭 드래그 | 유한한 물리 힘을 통한 이동 입력 |
-| `I` / `T` | impulse / 선택 객체 들어올리기·낙하 |
-| `P` / `R` | MuJoCo 일시정지·재개 / 장면 reset |
-| 우클릭 드래그, `WASD/QE` | 시점 회전과 카메라 이동 |
+자전거와 의류의 질량은 source config에서 각각 9.0kg, 2.0kg, 0.6kg을 가져온다. 빌드에서는 원본 제공값과 MuJoCo 질량의 대응을 검사하고 manifest에 결과를 기록한다. 이 확인은 데이터 전달의 무결성에 관한 것이다. 데이터셋에 적힌 값이 연구실 실물의 측정 질량과 같다는 확인은 아니다.
 
-## 결과와 분석
+관성 텐서는 source config에서 직접 제공되지 않아 collision bounds에서 유도한다. 마찰과 천의 재질 계수에는 실험용 가정이 들어간다. 따라서 [물성 처리 코드](src/replica_physics_twin/physical_properties.py)와 manifest의 출처는 숫자 자체만큼 중요하다. 제공값, 기하에서 유도한 값, 교정 전 가정값이 모두 하나의 ‘정확한 물성’으로 합쳐지면 이후 결과 오차의 원인을 판단할 수 없기 때문이다.
 
-### 단순 박스의 과거 검증
+의류는 2D flex grid와 매달린 가장자리의 hanging-edge constraint로 모델링했다. 강체 옷 메시의 자세만 바꾸는 대신 정점들이 움직일 자유도를 주고, Unreal의 표시 메시를 flex 표면의 변형에 대응시킨다. 현재 격자는 의류마다 8 × 14 = 112개, 합계 224개 정점이다. 질량 합은 source mass를 따르지만 Young's modulus 25,000/12,000Pa, 두께 0.002/0.001m, damping 0.06/0.04, drag coefficient 1.35는 실측 검증된 직물 특성이 아니다. 그림 1에서 확인되는 변형은 이 모델과 가정에 의한 결과이며, 특정 실제 의류의 처짐이나 진동을 정확히 재현했다는 결론에는 측정 비교가 더 필요하다.
 
-조건은 질량 0.1kg, 반높이 0.05m, 초기 중심 높이 0.35m, timestep 0.002s, 중력 −9.81m/s²다.
-아래 값은 저장된 [Phase 2 보고서](PHYSICS_VALIDATION_REPORT.md)의 결과이며 이번 문서 작업에서 새로 실행한 수치가 아니다.
+### 조작을 위치 변경 대신 물리 입력으로 다룬다
 
-| 지표 | 저장된 결과 | 판정·해석 |
-|---|---:|---|
-| 첫 접촉 | 0.25s | 중력 낙하 후 접촉 |
-| 최대 바닥 기준 오차 | 4.22mm | 당시 5mm 허용치 만족 |
-| 최종 중심 높이 | 0.0499964m | 이상적 rest 중심 0.05m에 근접 |
-| +X impulse Δv | 1.0m/s | 0.1 N·s / 0.1kg와 일치 |
-| solref 0.02 → 0.01 → 0.005s | 침투 17.02 → 8.43 → 4.22mm | 동일 단순 모델의 접촉 시간상수 비교 |
+선택은 단일 클릭 또는 Shift+클릭으로 관리하고, 드래그는 유한한 힘을 가하는 입력으로 연결한다. `I`의 impulse, `T`의 lift/drop, `P`의 일시정지·재개, `R`의 reset은 각각 힘 응답, 중력 응답, 시간 진행, 기준 상태 복원을 분리해 관찰하는 수단이다. 카메라의 우클릭 회전과 `WASD/QE` 이동은 그 상태를 바라보는 시점만 바꾼다.
 
-이 결과는 단순 모델의 수치 응답을 확인한다. 실제 자전거·의류의 물성, 전체 방의 충돌 정확도까지 검증하지는 않는다.
+이때 물체를 빠르게 움직이는 장면 하나보다 중요한 질문은 입력이 어떤 body에 적용되었으며 그 뒤 어떤 상태가 계산되었는가이다. 강체는 pose를, 의류는 변형 정점을 통해 결과를 표시하므로 두 표현을 동일한 단순 transform으로 처리할 수 없다. 객체 이름·원본 ID·형상 경로·질량 출처를 manifest와 bridge에서 이어 놓은 것은 이러한 입력과 결과를 추적하기 위한 구현상의 기여다. Replica/ReplicaCAD 원자료와 MuJoCo·Unreal 엔진 자체는 외부 기반이며, 이 연구가 새로 수행한 범위는 그 사이의 장면 처리, 충돌 선별, 물성 기록, 통신과 상호작용의 구성이다.
 
-### 현재 생성물과 과거 보고서의 차이
+## 과거 PASS와 현재 자전거 FAIL이 함께 남아 있는 이유
 
-| 항목 | 과거 CAD 구현 보고서 | 2026-09-16 현재 파일 대조 |
+[과거 CAD 구현 보고서](REPLICA_CAD_IMPLEMENTATION_REPORT.md)는 source-to-MuJoCo 질량 대응, 세 선택 객체의 낙하·접촉, 자전거와 room shell의 접촉 검증이 통과했다고 기록한다. 그러나 2026-09-16에 확인한 생성 모델은 그 보고서의 모델 규모와 다르다. 현재 파일을 설명하면서 과거 숫자나 판정을 그대로 가져오면 다른 조건의 결과를 같은 것으로 취급하게 된다.
+
+| 모델·검증 항목 | 과거 CAD 구현 보고서 | 2026-09-16 현재 파일 대조 |
 |---|---:|---:|
 | bodies / geoms | 593 / 117 | 337 / 150 |
-| flexes / flex vertices | 2 / 480 | 2 / 224 |
+| flexes / 전체 flex vertices | 2 / 480 | 2 / 224 |
 | equality constraints | 25 | 17 |
-| 현재 joints | 비교값으로 사용하지 않음 | 673 |
-| 질량 출처 | dataset config | 9.0 / 2.0 / 0.6kg, 제공값과 일치 기록 |
-| 낙하·접촉 검증 | 과거 PASS 기록 | **현재 FAIL** |
+| 전체 joints | 동일 비교값으로 사용하지 않음 | 673 |
+| source mass | dataset config | 9.0 / 2.0 / 0.6kg, 제공값과 일치 기록 |
+| 낙하·접촉 검증 | 당시 PASS | **현재 자전거 낙하 판정 FAIL** |
 
-[과거 구현 보고서](REPLICA_CAD_IMPLEMENTATION_REPORT.md)와 [현재 manifest 요약](docs/research-archive/evidence/inspected-manifest-summary.json)을 함께 보존한다.
-문서의 오래된 수치를 현재 생성 모델의 실측값처럼 재사용하지 않는다.
+현재 수치의 근거는 [manifest 대조 요약](docs/research-archive/evidence/inspected-manifest-summary.json)이다. 의류 정점 수가 각 240개에서 각 112개로 달라졌고 bodies·geoms·constraints도 바뀌었다는 사실은 확인된다. 그러나 이 차이만으로 어느 변경이 현재 실패를 일으켰는지 확정할 수는 없다. 과거 보고서는 수정하지 않고 해당 구성에 대한 기록으로 유지한다.
 
-### 현재 재검증의 실패와 해석
-
-Python 3.13.10 / MuJoCo 3.10.0에서 모델 컴파일은 성공했지만, 기존 [검증 스크립트](scripts/verify_replica_cad_physics.py)는 아래 오류로 끝났다.
+재검증에서는 Python 3.13.10 / MuJoCo 3.10.0으로 현재 모델이 컴파일되었다. 이후 기존 [물리 검증 스크립트](scripts/verify_replica_cad_physics.py)가 다음 오류로 중단되었다.
 
 ```text
 body did not fall under gravity: replica_bike_02_100
 ```
 
-현재 timestep 0.0005s에서 1,800 step은 0.9초다. 고정 step 수와 시간 기준, 초기 pose·접촉·constraint·엔진 버전을 함께 조사해야 한다.
-**원인은 이번 대조만으로 확정되지 않았으며, 검증 기준이나 모델을 통과하도록 바꾸지 않았다.** [환경·오류 JSON](docs/research-archive/evidence/reverified-physics-2026-09-16.json)
+이는 모델을 읽고 생성하는 단계의 성공과 요구한 동역학 응답의 성공이 다르다는 사례다. 또한 오류 메시지가 자전거 낙하 판정을 가리킨다는 사실과, 실제 원인이 중력 설정 하나라는 주장은 구분해야 한다. 현재 timestep 0.0005s에서 스크립트의 1,800 step은 0.9초다. 고정 step 수가 의미하는 관찰 시간, 초기 pose, 주변 접촉, constraint, 엔진 버전을 같은 입력에서 분리해 조사해야 한다. 현 기록만으로 원인은 확정되지 않았으며, 검증을 통과시키기 위한 모델 또는 판정 기준의 수정은 하지 않았다. 실행 환경과 오류는 [재검증 JSON](docs/research-archive/evidence/reverified-physics-2026-09-16.json)에 보존되어 있다.
 
-확인된 성과는 객체의 시각 형상, 계산용 충돌체, 질량 출처, 입력과 상태를 하나의 추적 가능한 구조로 연결한 것이다.
-실물 재현 정확도는 아직 제한된다. box/convex 근사는 오목 구조와 얇은 면을 단순화하고, 천의 고정 경계·격자·재질 가정은 실측 교정 전이다.
+영상과 수치가 서로 모순된다고 단정할 필요도 없다. 보존 영상은 자전거 이동과 의류 변형의 존재를 보여주지만, 촬영 당시 입력·모델·시간 조건이 현재 검사와 같다는 근거는 부족하다. 반대로 현재 FAIL을 숨기고 영상만으로 물리 검증을 대신할 수도 없다. 이 연구의 현재 상태는 상호작용 구현과 과거 검증 기록이 존재하며, 현재 생성 모델의 낙하 재현성은 해결해야 할 문제로 남아 있다는 것이다.
 
-## 한계와 다음 단계
+## 물리 환경의 연결에서 실물 재현으로 가기 위해 남은 검증
 
-다음 항목은 향후 제안이다. 완료한 기능이나 이미 확보한 수치로 읽지 않도록 우선순위와 평가 기준을 함께 둔다.
+자료가 뒷받침하는 결론은 외관, 충돌 형상, 물성 출처를 분리하면서 하나의 객체 상태로 다시 연결할 수 있다는 것이다. `office_0`의 책장 오탐 제거와 상판 proxy 수정은 객체 명칭과 충돌 근사를 자료에 맞게 고치는 과정이었다. ReplicaCAD 전환은 정확한 template이 없는 대상을 억지로 유지하기보다 원본 형상·배치·질량의 출처를 연결할 수 있는 객체로 실험을 다시 구성한 과정이었다. 두 경로 모두 시각적인 자연스러움만으로 모델의 정당성을 판단할 수 없다는 문제를 드러냈다.
 
-| 우선순위 | 남은 문제 | 다음 실험 | 완료를 판단할 근거 |
-|---|---|---|---|
-| P0 | 현재 자전거 검증 실패 | commit·환경·XML/manifest hash 고정 후 시간·pose·접촉·constraint를 분리 | 같은 입력의 실패 재현, 원인별 로그, 수정 전후 동일 판정 비교 |
-| P1 | 물성 가정의 실측 부재 | 질량·경사면 미끄럼·낙하 반발·천 처짐과 진동 측정 | 측정값·오차·반복 범위와 파라미터 출처 공개 |
-| P1 | 충돌 근사의 영향 미평가 | AABB·convex decomposition·개선 메시를 동일 조건 비교 | 침투·정착·계산시간을 함께 보고 |
-| P2 | bridge 지연·jitter 미계측 | 송수신 timestamp·명령 ACK·stale frame 계측 | 지연 분포와 누락/오래된 상태 비율 |
-| P2 | 문서와 생성물의 수치 불일치 | build 결과에서 표 자동 생성 | 생성 manifest와 보고서의 객체·정점·제약 수 일치 |
-| P3 | 연구실 GS와의 연계 미검증 | 검증된 geometry와 object transform을 GS 외관에 연결 | 물리 기준 장면의 상태·충돌 검증 유지, 외관과 물성 출처 분리 |
+물리적 동일성을 주장하려면 남은 불확실성을 순서대로 줄여야 한다. 우선 현재 자전거 실패를 같은 commit·환경·MJCF/manifest hash에서 재현하고, step 수와 관찰 시간, 시작 자세·접촉·제약의 영향을 분리해야 한다. 원인이 확인된 뒤 동일 판정으로 수정 전후를 비교해야 과거 PASS와 현재 FAIL 사이의 설명이 생긴다. 문서의 모델 규모 역시 빌드 manifest에서 자동 생성하면 현재 파일과 오래된 설명의 불일치를 줄일 수 있다.
 
-## 재현과 자료 안내
+그다음은 물성 및 충돌 근사의 교정이다. 질량, 경사면의 미끄럼 시작, 낙하 후 반발, 의류의 정적 처짐과 진동을 측정하고, 제공값·유도값·가정값 각각의 오차를 기록할 필요가 있다. AABB와 convex decomposition, 개선한 메시를 같은 장면에서 비교하면 오목 구조·얇은 면의 단순화가 침투·정착·계산시간에 미치는 영향을 나눌 수 있다. 천에서도 격자 밀도와 고정 경계, 탄성 계수를 함께 바꾸기보다 조건을 나누어 비교해야 한다. 이들은 아직 수행한 평가 결과가 아니라 현재 모델에서 도출한 후속 실험이다.
+
+연구실의 3DGS 외관과 연결하는 경우에도 같은 원칙이 유지된다. GS는 외관을 표현하고 검증된 geometry와 object transform이 물리 상태를 담당하도록 연결할 수 있지만, 외관이 사실적이라는 이유로 질량·마찰·충돌 정확도가 확보되지는 않는다. 이 저장소가 제공하는 출발점은 그러한 역할 분리와 출처 추적 구조이며, 실측 교정된 연구실 디지털 트윈의 완성은 별도 검증을 요구한다.
+
+## 장면을 다시 생성하고 검증하는 경로
 
 ### 실행 경로
 
@@ -226,7 +155,7 @@ bridge 실행 후 [Unreal 프로젝트](unreal/ReplicaPhysicsTwin.uproject)를 �
 | Replica/ReplicaCAD 원자료 | [데이터·복원 안내](DATA_AND_RESTORE.md) | 원본 프로젝트의 `data/downloads`, `data/raw`, `data/processed`, `data/derived` |
 | 생성 모델·실험 출력 | 공개 요약과 재검증 JSON | 원본 프로젝트의 `outputs/replica_cad/` 및 다른 `outputs/` |
 | Unreal 에셋·빌드 상태 | 공개 C++ 프로젝트 | 원본 프로젝트의 `unreal/` 전체 |
-| 영상 원본 | 위 MP4 링크 | `02-ReplicaPhysicsTwin/originals/original-videos/` |
+| 영상 원본 | 그림 1의 MP4와 원본 링크 | `02-ReplicaPhysicsTwin/originals/original-videos/` |
 | 환경·복사 검증 | [전체 복원 범위](DATA_AND_RESTORE.md) | 컬렉션 `_shared/`, `_control/manifests/`, 프로젝트 `RESTORE.md` |
 
 전체 원본 프로젝트는 2,192개 파일, 48,391,237,322 bytes의 보존·SHA-256 대조 기록이 있다. 별도 영상 등의 범위는 상위 보존 기록을 따른다.
