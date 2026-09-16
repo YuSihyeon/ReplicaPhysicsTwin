@@ -1,5 +1,7 @@
 # 전체 원본 데이터와 복원 범위
 
+**2026-09-16 최종 보존 상태:** 조사한 Windows 연구 원본과 WSL 전체 export, 연구별 직접 추출본, conda·Unity·Unreal 환경 archive의 로컬 내용 검증을 마쳤다. USB 전송·외부 사본 검증과 초기화 후 전체 실행은 아직 수행하지 않았다. 실제 복사 목록·해시·확인하지 못한 자료는 개인 보존 묶음의 `PRESERVATION_STATUS.md`와 `_control/manifests/`를 기준으로 확인한다.
+
 이 연구는 독립 저장소 `ReplicaPhysicsTwin`으로 관리한다. GitHub에는 코드·문서·공개 가능한 근거를 두며, 컴퓨터 초기화 대비 전체 보존본은 별도의 `ResearchCollection/02-ReplicaPhysicsTwin/`에 있다. 원시 데이터와 대형 자산은 Git clone만으로 복구되지 않는다.
 
 | 자료 | 실제 역할 | 전체 보존 위치 |
