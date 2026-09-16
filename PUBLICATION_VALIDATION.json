@@ -1,8 +1,8 @@
 {
   "project": "02-ReplicaPhysicsTwin",
-  "files": 136,
-  "bytes": 4262169,
-  "curated_links_checked": 24,
+  "files": 134,
+  "bytes": 4260070,
+  "curated_links_checked": 28,
   "issues": [],
   "status": "passed",
   "scope": "Independent public repository file hashes, JSON syntax, curated links and known-key patterns. Full private originals and external USB verification are separate."

@@ -56,8 +56,8 @@
   },
   {
     "path": "README.md",
-    "bytes": 3670,
-    "sha256": "8ad67d8c958c7cd61c6f97a7ac176c40bf151056426611c88078a314a9e0b061"
+    "bytes": 4288,
+    "sha256": "3244edd626a259a1df91a77c8ceb53d3aedb455cc3897055cac6b8be7e8d8c1c"
   },
   {
     "path": "REPLICA_CAD_IMPLEMENTATION_REPORT.md",
@@ -91,13 +91,13 @@
   },
   {
     "path": "docs/research-archive/MEDIA.md",
-    "bytes": 1072,
-    "sha256": "62f808c2d6edcc925b0096f491bc2d253163281196a3573bb06f2ad277ad98a4"
+    "bytes": 976,
+    "sha256": "6738c4bb94b3e223f0d073c108c2554ea10f48637d96098b42536b1cf4499717"
   },
   {
     "path": "docs/research-archive/README.ko.md",
-    "bytes": 13463,
-    "sha256": "4d641a81132dd340f04b7ff7c72207eb9b93822d493baef3900f1b655f56a735"
+    "bytes": 13467,
+    "sha256": "21516b3b02ac69410e11a0116569c971e63cb1907f25beb66d92ea652ddd48a5"
   },
   {
     "path": "docs/research-archive/evidence/DATASET_REPORT.md",
@@ -263,16 +263,6 @@
     "path": "docs/superpowers/plans/2026-08-12-replica-cad-migration.md",
     "bytes": 6397,
     "sha256": "e1e969d3a5d3ee6a8d01aa50d7984119f27302647e93b7a77e09530e6dcd962e"
-  },
-  {
-    "path": "gallery.html",
-    "bytes": 2468,
-    "sha256": "5da28deef73c25efaab61f907f7be7b21608094a5b2aeca73e131cc900a40d10"
-  },
-  {
-    "path": "index.html",
-    "bytes": 157,
-    "sha256": "293d64d23d0201137f2a56152603a252df921bbe312bda3fa8dd2643230a8012"
   },
   {
     "path": "pyproject.toml",

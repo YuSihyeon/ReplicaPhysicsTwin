@@ -1,5 +1,13 @@
 # Replica Physics Twin
 
+## 영상과 설명
+
+영상 제목이나 미리보기를 누르면 해당 MP4 파일을 열 수 있습니다.
+
+| 영상 | 설명 |
+|---|---|
+| [**Replica 자전거·의류 물리 시연**](docs/research-archive/media/replica-demo-preview.mp4)<br>[![Replica 자전거·의류 물리 시연 미리보기](docs/research-archive/media/replica-poster.jpg)](docs/research-archive/media/replica-demo-preview.mp4) | 자전거 이동과 의류 변형을 보여주는 약 6.93초 시연입니다. 원본 파일명에 reverse가 있어 순방향 물리 시간이나 실시간 처리 성능을 이 영상만으로 확정하지 않습니다. [원본 MP4](docs/research-archive/media/replica-demo-original.mp4) |
+
 ## 한국어 연구 정리와 데모 · 2026-09-16
 
 - [연구 의도·도구 선정·과정·결과·분석·후속 과제](docs/research-archive/README.ko.md)
@@ -7,7 +15,6 @@
 - [현재 생성 모델과 과거 보고서의 차이](docs/research-archive/evidence/inspected-manifest-summary.json)
 - [2026-09-16 재검증 기록](docs/research-archive/evidence/reverified-physics-2026-09-16.json)
 - [전체 원본 데이터·복원 안내](DATA_AND_RESTORE.md)
-- [독립 영상 갤러리](https://yusihyeon.github.io/ReplicaPhysicsTwin/gallery.html)
 
 현재 보존된 생성 모델은 337 bodies / 150 geoms / 224 flex vertices로,
 아래 과거 구현 보고서에 적힌 구성과 다릅니다. 이번 기존 검증 스크립트 재실행은
