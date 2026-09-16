@@ -2,7 +2,7 @@
 
 [![Replica 데모](media/replica-poster.jpg)](media/replica-demo-original.mp4)
 
-[원본 MP4](https://github.com/YuSihyeon/ReplicaPhysicsTwin/raw/refs/heads/main/docs/research-archive/media/replica-demo-original.mp4) · [재생용 미리보기](media/replica-demo-preview.mp4) · [브라우저 영상 갤러리](https://YuSihyeon.github.io/ResearchArchive/gallery.html#replica) · [상세 연구 정리](README.ko.md)
+[원본 MP4](https://github.com/YuSihyeon/ReplicaPhysicsTwin/raw/refs/heads/main/docs/research-archive/media/replica-demo-original.mp4) · [재생용 미리보기](media/replica-demo-preview.mp4) · [브라우저 영상 갤러리](https://yusihyeon.github.io/ReplicaPhysicsTwin/gallery.html) · [상세 연구 정리](README.ko.md)
 
 원본 파일명: `replica_physics_demo_reverse_realtime.mp4`. 2560×1368, 14fps, 97frames, 약 6.93초. 원본 SHA-256: `add4bd444e1dde1b6b714fbec4872023343bb6f86e3acc67f04153881c6cb45c`.
 

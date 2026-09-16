@@ -47,9 +47,9 @@ pyproject.toml
 |---|---|---|
 | OS | Windows 11 Pro 64-bit, `10.0.26200` | PASS |
 | Unreal Engine | `C:\Program Files\Epic Games\UE_5.7\Engine\Binaries\Win64\UnrealEditor.exe`, `++UE5+Release-5.7-CL-51494982` | PASS |
-| 기본 Python | CPython `3.13.10`, `C:\Users\user\AppData\Local\Programs\Python\Python313\python.exe` | PASS_WITH_WARNING |
+| 기본 Python | CPython `3.13.10`, `<USER_PROFILE>\AppData\Local\Programs\Python\Python313\python.exe` | PASS_WITH_WARNING |
 | uv | `uv 0.11.29` | PASS |
-| uv Python 3.11 | CPython `3.11.15`, `C:\Users\user\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\python.exe` | PASS |
+| uv Python 3.11 | CPython `3.11.15`, `<USER_PROFILE>\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\python.exe` | PASS |
 | Python 3.13 MuJoCo | `mujoco==3.10.0` import 성공 | PASS |
 | Python 3.13 `mj_step` | MJCF compile, 1 step, finite state 확인 성공 | PASS |
 | Python 3.11 MuJoCo | `mujoco` 및 `numpy` 미설치 | NEEDS_DECISION |

@@ -6,7 +6,8 @@
 - [영상 보기와 원본 MP4](docs/research-archive/MEDIA.md)
 - [현재 생성 모델과 과거 보고서의 차이](docs/research-archive/evidence/inspected-manifest-summary.json)
 - [2026-09-16 재검증 기록](docs/research-archive/evidence/reverified-physics-2026-09-16.json)
-- [GS·로봇·광학 종합 연구 아카이브](https://github.com/YuSihyeon/ResearchArchive)
+- [전체 원본 데이터·복원 안내](DATA_AND_RESTORE.md)
+- [독립 영상 갤러리](https://yusihyeon.github.io/ReplicaPhysicsTwin/gallery.html)
 
 현재 보존된 생성 모델은 337 bodies / 150 geoms / 224 flex vertices로,
 아래 과거 구현 보고서에 적힌 구성과 다릅니다. 이번 기존 검증 스크립트 재실행은

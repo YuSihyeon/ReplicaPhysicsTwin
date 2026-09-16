@@ -1,0 +1,682 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 563,
+    "sha256": "dbd700e893745e9f7ca9a7a9540c5ee7ed4516edfe77989a20f82b92bcd28d39"
+  },
+  {
+    "path": "DATASET_REPORT.md",
+    "bytes": 5599,
+    "sha256": "8db6c363585356eb1a0fb71f063332efd6911d00398bcff9b238129fedab6cf3"
+  },
+  {
+    "path": "DATA_AND_RESTORE.md",
+    "bytes": 2193,
+    "sha256": "abceae6c0c9996ae45a2d869376598ee31413fcea0fbdf8833a37e49ec9e5b3f"
+  },
+  {
+    "path": "ENVIRONMENT_REPORT.md",
+    "bytes": 7048,
+    "sha256": "625fcb012728b55d9cf87fa64a46947d276419715995970441f0d6403541e933"
+  },
+  {
+    "path": "PHASE3_BRIDGE_REPORT.md",
+    "bytes": 3200,
+    "sha256": "f8685cd69383f060fe9cdbca4ccc7d3edfcc275c0a327489c83ac27df7bdb001"
+  },
+  {
+    "path": "PHASE4_VISUAL_REPORT.md",
+    "bytes": 2273,
+    "sha256": "84c42b1cc92277fe7cfb0e1bf3e5bef3dbafc010a254ab8775559ddaabe50014"
+  },
+  {
+    "path": "PHASE5_COLLISION_REPORT.md",
+    "bytes": 3485,
+    "sha256": "649940a03d4bc2cb26d39d0fde4201df2c01f4c5cff1143696a8dd11bb119688"
+  },
+  {
+    "path": "PHASE6_TISSUE_BOX_REPORT.md",
+    "bytes": 2754,
+    "sha256": "8c4a2c56e001106bd29e10979d9eb07fea2a76b92129171fae504ebed20fb22e"
+  },
+  {
+    "path": "PHYSICAL_PIPELINE_REPORT.md",
+    "bytes": 3315,
+    "sha256": "ad16a1ddfb9badca151320f816fc993b66c2263f5e71bc709d04aa84976c1c08"
+  },
+  {
+    "path": "PHYSICS_VALIDATION_REPORT.md",
+    "bytes": 3437,
+    "sha256": "280dbffd9493292f03d64f43880c24f0a0bed73a92abe87c18cd9b5c04ef8fa4"
+  },
+  {
+    "path": "PROTOCOL.md",
+    "bytes": 4043,
+    "sha256": "065ac79f1841265e7b2109df2f67e55c81e7989d6207a3c816e3584fb5af663f"
+  },
+  {
+    "path": "README.md",
+    "bytes": 3670,
+    "sha256": "8ad67d8c958c7cd61c6f97a7ac176c40bf151056426611c88078a314a9e0b061"
+  },
+  {
+    "path": "REPLICA_CAD_IMPLEMENTATION_REPORT.md",
+    "bytes": 4949,
+    "sha256": "5cbdf931a8a6eb739d04675ba1f37093d7ba3b04669e937bdbcc116606d69fa9"
+  },
+  {
+    "path": "UNREAL_PHYSICAL_PIPELINE_CHECKLIST.md",
+    "bytes": 2059,
+    "sha256": "f7a3bc7aa57ed665880adeb634737d92889fdea2fda12d23226eacf8e332eac9"
+  },
+  {
+    "path": "UNREAL_VISUAL_CHECKLIST.md",
+    "bytes": 4782,
+    "sha256": "b33f3e1a4b33a951c5c5a998f2562f0555e99482eb9eb460cdf3764cf6d812c6"
+  },
+  {
+    "path": "configs/material_priors.yaml",
+    "bytes": 1646,
+    "sha256": "eab170ff17e25d1cb219fddb3fce2d4f4093cbfb8350d86b7dde375ae8731fac"
+  },
+  {
+    "path": "configs/physical_overrides.yaml",
+    "bytes": 431,
+    "sha256": "2f6c80a14280ffd9579c566a58987f3acf250e7f2b926a9b55b69a4ac3f62dbb"
+  },
+  {
+    "path": "configs/pipeline.yaml",
+    "bytes": 636,
+    "sha256": "eb5538ec9f2e23a46ca940fef723708cc32f5ff910d67937614dec680c74f28d"
+  },
+  {
+    "path": "docs/research-archive/MEDIA.md",
+    "bytes": 1072,
+    "sha256": "62f808c2d6edcc925b0096f491bc2d253163281196a3573bb06f2ad277ad98a4"
+  },
+  {
+    "path": "docs/research-archive/README.ko.md",
+    "bytes": 13463,
+    "sha256": "4d641a81132dd340f04b7ff7c72207eb9b93822d493baef3900f1b655f56a735"
+  },
+  {
+    "path": "docs/research-archive/evidence/DATASET_REPORT.md",
+    "bytes": 5536,
+    "sha256": "dd053c17593d9c258062352bb19b05bcd8ec11b6cb2552407a0eb9274f2d25e6"
+  },
+  {
+    "path": "docs/research-archive/evidence/ENVIRONMENT_REPORT.md",
+    "bytes": 6863,
+    "sha256": "118bcd8d01114519a77e625e7e62709bd9531a11562efbdba0bbed24d624ab32"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHASE3_BRIDGE_REPORT.md",
+    "bytes": 3169,
+    "sha256": "c42b28194920307275b17e3621db01355cc5935c105444a03ab0034333944c33"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHASE4_VISUAL_REPORT.md",
+    "bytes": 2273,
+    "sha256": "84c42b1cc92277fe7cfb0e1bf3e5bef3dbafc010a254ab8775559ddaabe50014"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHASE5_COLLISION_REPORT.md",
+    "bytes": 3485,
+    "sha256": "649940a03d4bc2cb26d39d0fde4201df2c01f4c5cff1143696a8dd11bb119688"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHASE6_TISSUE_BOX_REPORT.md",
+    "bytes": 2754,
+    "sha256": "8c4a2c56e001106bd29e10979d9eb07fea2a76b92129171fae504ebed20fb22e"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHYSICAL_PIPELINE_REPORT.md",
+    "bytes": 3273,
+    "sha256": "d1b8663368addbdba1814208e911923a7eeee690410ff7c53ee43459684ee729"
+  },
+  {
+    "path": "docs/research-archive/evidence/PHYSICS_VALIDATION_REPORT.md",
+    "bytes": 3427,
+    "sha256": "51f262d4b7e88fd22241847fb171b210adb04c7973f4ee339928dcc61854bde1"
+  },
+  {
+    "path": "docs/research-archive/evidence/PROTOCOL.md",
+    "bytes": 4043,
+    "sha256": "065ac79f1841265e7b2109df2f67e55c81e7989d6207a3c816e3584fb5af663f"
+  },
+  {
+    "path": "docs/research-archive/evidence/README.md",
+    "bytes": 2746,
+    "sha256": "fd34ab9d1ae4622b4c60cf6036532371723915ad5f641fa28863b316171844d3"
+  },
+  {
+    "path": "docs/research-archive/evidence/REPLICA_CAD_IMPLEMENTATION_REPORT.md",
+    "bytes": 4949,
+    "sha256": "5cbdf931a8a6eb739d04675ba1f37093d7ba3b04669e937bdbcc116606d69fa9"
+  },
+  {
+    "path": "docs/research-archive/evidence/RUN_LOG.md",
+    "bytes": 14060,
+    "sha256": "b03f4de8c22d0b7bd7124e27350e27c6c346cab045212f26209582cbc27b5547"
+  },
+  {
+    "path": "docs/research-archive/evidence/UNREAL_PHYSICAL_PIPELINE_CHECKLIST.md",
+    "bytes": 2059,
+    "sha256": "f7a3bc7aa57ed665880adeb634737d92889fdea2fda12d23226eacf8e332eac9"
+  },
+  {
+    "path": "docs/research-archive/evidence/UNREAL_VISUAL_CHECKLIST.md",
+    "bytes": 4782,
+    "sha256": "b33f3e1a4b33a951c5c5a998f2562f0555e99482eb9eb460cdf3764cf6d812c6"
+  },
+  {
+    "path": "docs/research-archive/evidence/configs/material_priors.yaml",
+    "bytes": 1646,
+    "sha256": "eab170ff17e25d1cb219fddb3fce2d4f4093cbfb8350d86b7dde375ae8731fac"
+  },
+  {
+    "path": "docs/research-archive/evidence/configs/physical_overrides.yaml",
+    "bytes": 431,
+    "sha256": "2f6c80a14280ffd9579c566a58987f3acf250e7f2b926a9b55b69a4ac3f62dbb"
+  },
+  {
+    "path": "docs/research-archive/evidence/configs/pipeline.yaml",
+    "bytes": 636,
+    "sha256": "eb5538ec9f2e23a46ca940fef723708cc32f5ff910d67937614dec680c74f28d"
+  },
+  {
+    "path": "docs/research-archive/evidence/inspected-manifest-summary.json",
+    "bytes": 3649,
+    "sha256": "019f1ba3b6cc327ce710103fcd261833ab3c83c2a1a7685f62922885387b4f47"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/replica_cad/REPLICA_CAD_PROVENANCE.md",
+    "bytes": 1040,
+    "sha256": "bb342c41658815572464e3f0d79f0fab4bd9ebe6dcd4c8e20eee258ed773fdd4"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/replica_cad/metadata/replica_cad_interaction.json",
+    "bytes": 217652,
+    "sha256": "40959606adee2cf2a79bb04bd6bcabc3a4daae3cab9b19de96edd5cfbca0987e"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/object_recognition_experiment.json",
+    "bytes": 35804,
+    "sha256": "f1418cbe0f9dd5698ca0be8a401b3444572a95baed20e907039f6cf1a033ce91"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/phase2/phase2_summary.json",
+    "bytes": 1741,
+    "sha256": "9b998cb138449a8ea6cbc86c8dd90f6fbb6ec0d24d0bc56ab4d0b0f7c1e1fd04"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/phase5/phase5_collision_summary.json",
+    "bytes": 2410,
+    "sha256": "510db9195d2f7eb059b44ed7c38c53f3cf878a2a15c351b4917dedbc55dff0ef"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/phase6/phase6_tissue_box_summary.json",
+    "bytes": 804,
+    "sha256": "29844005842fd4e31756b31ad4929c3677f6c6a6839cda515205291a4e2c337b"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/physical_pipeline_validation.json",
+    "bytes": 4285,
+    "sha256": "c8a8c20e850e8648700a14fe109da58700dc1604bf22b4f144a788c0d2ee636e"
+  },
+  {
+    "path": "docs/research-archive/evidence/outputs/reports/replica_cad_validation.json",
+    "bytes": 2461,
+    "sha256": "77f64b36d9abc70f1baa2bd63916b33b3ff0812a9f765c96ebf9ca02ddb3aea3"
+  },
+  {
+    "path": "docs/research-archive/evidence/reverified-physics-2026-09-16.json",
+    "bytes": 729,
+    "sha256": "61eca3e955c700e9716fcdce50c1e2f462ee5269ceeb601c70ad2fee7446f86a"
+  },
+  {
+    "path": "docs/research-archive/media/replica-demo-original.mp4",
+    "bytes": 2672175,
+    "sha256": "add4bd444e1dde1b6b714fbec4872023343bb6f86e3acc67f04153881c6cb45c"
+  },
+  {
+    "path": "docs/research-archive/media/replica-demo-preview.mp4",
+    "bytes": 321166,
+    "sha256": "24a2475fefeacb7364be1c281eb57b880a8c48e00d753fb6bf0ce9436028b837"
+  },
+  {
+    "path": "docs/research-archive/media/replica-demo-preview.webm",
+    "bytes": 173884,
+    "sha256": "edab312f2bc9e15c1ae167c2a51ebd65dc2b0958cd7d83745074f376a6f9dc9a"
+  },
+  {
+    "path": "docs/research-archive/media/replica-poster.jpg",
+    "bytes": 31355,
+    "sha256": "89a18be5a3ff07f694207b5091deaddd30d733fdc1459cd41ea3449429cd9f01"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-08-11-physical-object-twin-pipeline.md",
+    "bytes": 28907,
+    "sha256": "48982d159e7eb5cf641cdc76256107fa5b9700975d08f12ee372826e8a475d31"
+  },
+  {
+    "path": "docs/superpowers/plans/2026-08-12-replica-cad-migration.md",
+    "bytes": 6397,
+    "sha256": "e1e969d3a5d3ee6a8d01aa50d7984119f27302647e93b7a77e09530e6dcd962e"
+  },
+  {
+    "path": "gallery.html",
+    "bytes": 2468,
+    "sha256": "5da28deef73c25efaab61f907f7be7b21608094a5b2aeca73e131cc900a40d10"
+  },
+  {
+    "path": "index.html",
+    "bytes": 157,
+    "sha256": "293d64d23d0201137f2a56152603a252df921bbe312bda3fa8dd2643230a8012"
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 442,
+    "sha256": "4b762d9507cf684d9c3f594db390065a0b7c572aee9f60433d7456680f0ca25c"
+  },
+  {
+    "path": "scripts/.gitkeep",
+    "bytes": 2,
+    "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  {
+    "path": "scripts/__init__.py",
+    "bytes": 75,
+    "sha256": "4adabc487b1dba281af90aaeabc7b835ea0f6ff4d9fb67ae3d3be5c29d4026fc"
+  },
+  {
+    "path": "scripts/build_office0_collision_proxy.py",
+    "bytes": 3004,
+    "sha256": "0ee41f30dc1ad1becf928aadcd32e237083c7daf5e93bfd220ceb6c8284378ff"
+  },
+  {
+    "path": "scripts/build_office0_interaction_scene.py",
+    "bytes": 4200,
+    "sha256": "2a60b9b12fe5db98072858f02703f700c12acad93eba54fa4923fd3baca9e046"
+  },
+  {
+    "path": "scripts/build_office0_physical_manifest.py",
+    "bytes": 5853,
+    "sha256": "d115fdb1331ea138418b042c133c3b1efccb539a067b014503bf3b972e585aef"
+  },
+  {
+    "path": "scripts/build_office0_tissue_box.py",
+    "bytes": 3029,
+    "sha256": "f5a01bbd21035628ac96db1f294b493de586de007a9e9829df079920e7bb7a2d"
+  },
+  {
+    "path": "scripts/build_office0_visual_mesh.py",
+    "bytes": 2308,
+    "sha256": "e46b31557af34cde12a57e09d68567367ea87c4e89e592b7bbc3636ff2d78155"
+  },
+  {
+    "path": "scripts/build_replica_cad_pipeline.py",
+    "bytes": 3631,
+    "sha256": "b84a05fb4e5dfbb2c5ceb45b185abed33d09456a96e525589624c64f69907d94"
+  },
+  {
+    "path": "scripts/download_replica_cad.ps1",
+    "bytes": 2369,
+    "sha256": "fcf7d868330391e6d0d6fe22b7d3c98330ba50d579c5010ade84d0c758bff697"
+  },
+  {
+    "path": "scripts/download_replica_office0.ps1",
+    "bytes": 6401,
+    "sha256": "bf04707a2507921e0b372e1da655fb8f5782e4f1cf4834a21c3207b59862d722"
+  },
+  {
+    "path": "scripts/recognize_office0_objects.py",
+    "bytes": 4812,
+    "sha256": "7606f4a777cb8ab935e599bbb33dd9e78addd13a0a3dcc10d58fb13512462a53"
+  },
+  {
+    "path": "scripts/run_office0_interaction.ps1",
+    "bytes": 1233,
+    "sha256": "298c75a55a14cba79b870a56d87be398cf2cb21ecaa9cfcc029edcc696c8e477"
+  },
+  {
+    "path": "scripts/run_phase3_bridge.ps1",
+    "bytes": 864,
+    "sha256": "0aa70557f50f511b4f769dd333331b65974da6a67bcd30c5b7348fbbe1dfaf78"
+  },
+  {
+    "path": "scripts/run_phase6_tissue_box.ps1",
+    "bytes": 935,
+    "sha256": "e824e5c0e155deb8b942b1f8e4fc77280785e947a3474f6377fed9522f3485be"
+  },
+  {
+    "path": "scripts/run_replica_cad.ps1",
+    "bytes": 1772,
+    "sha256": "5ce55fd5fc55a5ab9eaea2a1243dbaf49488b2a8d2137f7273908ebc6428c03c"
+  },
+  {
+    "path": "scripts/verify_physical_pipeline.py",
+    "bytes": 1214,
+    "sha256": "222038c9f41c35ac2f4a1e61184f834efef9f896f5ac05f424a5283c3c30d5b9"
+  },
+  {
+    "path": "scripts/verify_replica_cad.py",
+    "bytes": 4992,
+    "sha256": "26de6c34d558d35cc2b9d20048681f6a46f1274bb0c4819f34276d68eddbb331"
+  },
+  {
+    "path": "scripts/verify_replica_cad_physics.py",
+    "bytes": 11889,
+    "sha256": "8d6af64c9dc8568666c2baec59df91706e9a00696b95b2449f259d2b43059802"
+  },
+  {
+    "path": "scripts/verify_replica_data.py",
+    "bytes": 5482,
+    "sha256": "709db6b37b5ec655bb6e6592d6ff104a25dcad5fce7707417575b77d5ff49f7f"
+  },
+  {
+    "path": "src/replica_physics_twin/__init__.py",
+    "bytes": 71,
+    "sha256": "797a4fb08a45f0a556bd93f2cd8268f092564a61aca95932c3b13c95577994e2"
+  },
+  {
+    "path": "src/replica_physics_twin/bridge_protocol.py",
+    "bytes": 15478,
+    "sha256": "81cd864b84f15c6da35a782422bb6a6e0fc0c32ba4f08dcb40e213459be2326a"
+  },
+  {
+    "path": "src/replica_physics_twin/bridge_server.py",
+    "bytes": 59760,
+    "sha256": "234eee08f7079326b423fffb71b929290d138d75b8e08aa90bc3f3f27646639a"
+  },
+  {
+    "path": "src/replica_physics_twin/object_recognition.py",
+    "bytes": 8026,
+    "sha256": "5558e66fa5c51ae3f12ab1feacb1a88a90431c26bb0a38354eaa63060082d8a6"
+  },
+  {
+    "path": "src/replica_physics_twin/office0_analysis.py",
+    "bytes": 16493,
+    "sha256": "cbf733e83ebf5424af3268e5dbd91a1023fe23852b8e93810ae18a1820942819"
+  },
+  {
+    "path": "src/replica_physics_twin/office0_collision.py",
+    "bytes": 37929,
+    "sha256": "0a25ccbd7eaa8e6075e979d9e8e45b95cac657efa2f3deea3ebdd519ca8bdd26"
+  },
+  {
+    "path": "src/replica_physics_twin/physical_pipeline.py",
+    "bytes": 16924,
+    "sha256": "54b2994a954c971c95eef79666d0c5983d257c1cc9432a26dcf7b1ff85edfa6e"
+  },
+  {
+    "path": "src/replica_physics_twin/physical_properties.py",
+    "bytes": 12418,
+    "sha256": "312317da1b7d1afed1d92cfca8f3edffe5768bab430afcbd6f1bc670e393aad3"
+  },
+  {
+    "path": "src/replica_physics_twin/physical_scene.py",
+    "bytes": 17098,
+    "sha256": "e45526e0f5c7949de6acf6d1614fbe6b1f0f94075c503eb65dddf2a55e958011"
+  },
+  {
+    "path": "src/replica_physics_twin/physics_validation.py",
+    "bytes": 13063,
+    "sha256": "ce2ac10ec540f9a044b562395a8a1acc4f4aa7d1e4c80f3d3f9b2c70cf579727"
+  },
+  {
+    "path": "src/replica_physics_twin/replica_archive.py",
+    "bytes": 8835,
+    "sha256": "f09f53026321abd4921f0909a35f4f173b4ae47e969866a0b2db26be5bcd89b8"
+  },
+  {
+    "path": "src/replica_physics_twin/replica_cad.py",
+    "bytes": 30547,
+    "sha256": "a2d1b334c96cdece5007fda0bbe51280a31f137dfd754bb7d4a87e15d90ed924"
+  },
+  {
+    "path": "src/replica_physics_twin/replica_cad_scene.py",
+    "bytes": 47870,
+    "sha256": "956dd74f8102c440095fdc129b7bbf77bfb2262ee99f65e7e5e632f2658d4e73"
+  },
+  {
+    "path": "src/replica_physics_twin/tissue_box.py",
+    "bytes": 16548,
+    "sha256": "1cadd769b6ffcaa9f4dae87c6893a062d92e744a085bac8fa7b74ae26dc1a327"
+  },
+  {
+    "path": "src/replica_physics_twin/visual_mesh.py",
+    "bytes": 21907,
+    "sha256": "e64b9b8a429777adcd0a37e1708cda56069a92352292369b5182e32abf87bd62"
+  },
+  {
+    "path": "tests/.gitkeep",
+    "bytes": 2,
+    "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6"
+  },
+  {
+    "path": "tests/test_bridge_grab.py",
+    "bytes": 11064,
+    "sha256": "5a6e4454c19a394ac46b07d162c9f529eafdeeed9d3e0ba22e022d31a72f5b81"
+  },
+  {
+    "path": "tests/test_bridge_protocol.py",
+    "bytes": 10595,
+    "sha256": "978c409e5d09c28d556b7bade801b4320ea68b82a907e6f1f450f6e40f0e7543"
+  },
+  {
+    "path": "tests/test_bridge_protocol_v2.py",
+    "bytes": 3159,
+    "sha256": "72af778e53ab69c069964e2a94b0aa72f9c18cd5392af9bca83c41f3bfd23866"
+  },
+  {
+    "path": "tests/test_bridge_server_v2.py",
+    "bytes": 7085,
+    "sha256": "225705f840e9ce0b0cc16d7278a71925facba982b57178fe6cb832ce3b0e8861"
+  },
+  {
+    "path": "tests/test_download_script.ps1",
+    "bytes": 837,
+    "sha256": "b0bda70884bc1089c3299a0581c3d5dd029473bc6aed57ad76711ac9029e8e49"
+  },
+  {
+    "path": "tests/test_interaction_scene_script.py",
+    "bytes": 1750,
+    "sha256": "418da60cca743f4c1fe8b8b6f74c6320c470e3fa6914398f065792ec3807c47a"
+  },
+  {
+    "path": "tests/test_object_recognition.py",
+    "bytes": 2675,
+    "sha256": "6d47cefd104e3cb7175a9ae716ab0d1411a58022074243bbd3fbfc8a44b889e4"
+  },
+  {
+    "path": "tests/test_office0_analysis.py",
+    "bytes": 2915,
+    "sha256": "3b6bf89166e09fea580c91f7d904246a9a35adcebdc212abe7cf0ad73dc2eaf8"
+  },
+  {
+    "path": "tests/test_office0_collision.py",
+    "bytes": 4397,
+    "sha256": "700d1966cf511d799442a4dc5ac284fa71545258e2f9522d796db82637d04996"
+  },
+  {
+    "path": "tests/test_physical_manifest_script.py",
+    "bytes": 1379,
+    "sha256": "9a7758addb885d6d71113a73b0b37968a08885e00ac33127e0bf8abf75b2376f"
+  },
+  {
+    "path": "tests/test_physical_pipeline.py",
+    "bytes": 4777,
+    "sha256": "f30a5413781cc0503f7904ad719d384dcc872d184caf6e7bcc1681b4b0d3d5a1"
+  },
+  {
+    "path": "tests/test_physical_properties.py",
+    "bytes": 2843,
+    "sha256": "22b8c2dddc0dbe9dd162105e687a0a4bfedb00e1e4cd096557ff2fc2477a64dc"
+  },
+  {
+    "path": "tests/test_physical_scene.py",
+    "bytes": 6024,
+    "sha256": "693ef47d33c946db68e3e9100ce41d82a20ae6bfd65a7b15e49b998578f389eb"
+  },
+  {
+    "path": "tests/test_physics_validation.py",
+    "bytes": 2102,
+    "sha256": "77f9547d856fc79d5c72401176b2a513e08bd546ce12c76ce9ab9488fb5eeae3"
+  },
+  {
+    "path": "tests/test_recognition_experiment.py",
+    "bytes": 1048,
+    "sha256": "6c2a1c390b3308fd60e506ba732fc81522e52bb8aeca1f066633f04e33261dd4"
+  },
+  {
+    "path": "tests/test_replica_archive.py",
+    "bytes": 5085,
+    "sha256": "2bf2f0620ff477aca00db3f5ae767f8992c448d9884fa0e1c3d8e23475154cc7"
+  },
+  {
+    "path": "tests/test_replica_cad_bridge_manifest.py",
+    "bytes": 6195,
+    "sha256": "05ec5a38ec517450332f490224137eeb527e8b3089fc31288ffa97e03a510e04"
+  },
+  {
+    "path": "tests/test_replica_cad_glb.py",
+    "bytes": 5187,
+    "sha256": "e9fbcf2058197ebfab1f31d920dbbb3bd5956292f58dc9c9fcb9d4cad4ce2803"
+  },
+  {
+    "path": "tests/test_replica_cad_scene.py",
+    "bytes": 12440,
+    "sha256": "c6739de86fd33831eea350fbdec73a3b7ec8c358544b8c5c6cd5e5db4c49942e"
+  },
+  {
+    "path": "tests/test_replica_cad_unreal_source.py",
+    "bytes": 1607,
+    "sha256": "aea3e2fa3cde233824164046ad1a982b2736ebe5eee00e81b41057e882cf1928"
+  },
+  {
+    "path": "tests/test_tissue_box.py",
+    "bytes": 3151,
+    "sha256": "a5ca53b6903f4f5ebb8e21a00df6d3c13d29f2f1f50abd6a6b3e752b6b930930"
+  },
+  {
+    "path": "tests/test_unreal_controls_source.py",
+    "bytes": 5833,
+    "sha256": "8f3300df8728b6a9426716398ec78849c16321f1056ec9b14400fc549487e5da"
+  },
+  {
+    "path": "tests/test_visual_mesh.py",
+    "bytes": 5835,
+    "sha256": "58d5f05c8572037bd09254f38f9b94afbad1d9c3a125eb8abd19185099324677"
+  },
+  {
+    "path": "unreal/Config/DefaultEngine.ini",
+    "bytes": 599,
+    "sha256": "2e6d2395abfe3bbaec47cb109b7509e2543f09b7d1c17e881757285e0fdad05b"
+  },
+  {
+    "path": "unreal/Config/DefaultInput.ini",
+    "bytes": 9106,
+    "sha256": "05cc777eaf15bfc20f234c39196737b098102583cc05c35912e05a39be8cf919"
+  },
+  {
+    "path": "unreal/ReplicaPhysicsTwin.uproject",
+    "bytes": 452,
+    "sha256": "a22671f144221d2c59f7bc35ab61cb06500d5f693d33944fa5bac1a41aa14e0a"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin.Target.cs",
+    "bytes": 348,
+    "sha256": "beed6687314a429d49fac472f01579c19cc17b84b88080ca34854bee07cd5c8d"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/MuJoCoBridgeDemoActor.cpp",
+    "bytes": 14751,
+    "sha256": "e939b50d95015bd434a6aa05ffeda90398073d867eea338cde1bd33dabd53d66"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/MuJoCoBridgeDemoGameMode.cpp",
+    "bytes": 21028,
+    "sha256": "864d6be71f9c108cd260388dc9b95e934ec2412c92a2d17a9221a52bb411641a"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/MuJoCoBridgeDemoPlayerController.cpp",
+    "bytes": 21459,
+    "sha256": "5d502c060f787f848cc55aca6810360ae3523c13518ccd0f14ab71e182e74c32"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/MuJoCoBridgeTypes.cpp",
+    "bytes": 11128,
+    "sha256": "92f30a197f19894b2e81a3891c666e430e5d839ea4f018fa5e0f7a44667f0154"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/MuJoCoStateReceiverComponent.cpp",
+    "bytes": 13193,
+    "sha256": "db244fd0c60dab06a28977e5a8347c7793ed9c06bb9ef5a023c1f383cf3d991d"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/ReplicaMeshFormat.cpp",
+    "bytes": 5621,
+    "sha256": "ed03775fd24f26a67a4faccc1256808f8d1d5944ec27d0d80ba95755ddd4ddcb"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/ReplicaMeshFormat.h",
+    "bytes": 521,
+    "sha256": "35be1065926f17efe65aea14187fb317d90920d0167a49ca48ba68f7e949a980"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Bridge/ReplicaOfficeVisualActor.cpp",
+    "bytes": 8686,
+    "sha256": "3f549185a432c91071f6b6eef31147d912aafab587e000d1d44325843fbbcd37"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/ReplicaPhysicsTwin.cpp",
+    "bytes": 136,
+    "sha256": "f13f817cccd360fe84aff2e84a55043296d26bf3f21d1dfc7146e89a1a199ff8"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Private/Tests/MuJoCoBridgeMappingTests.cpp",
+    "bytes": 2090,
+    "sha256": "7848999c989a3715ad06af4b8e9174bb7a2024e89b22df5cd0027babbe3d7615"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/MuJoCoBridgeDemoActor.h",
+    "bytes": 2618,
+    "sha256": "4309c22018a78b406d550480db7f95c05aff45c9bbaf4efa5b795ac9c1eff320"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/MuJoCoBridgeDemoGameMode.h",
+    "bytes": 406,
+    "sha256": "4ff3cd7b746dc9c4caa510a6a85bd157887b7085cdbeb90f2429fc7ce1df8996"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/MuJoCoBridgeDemoPlayerController.h",
+    "bytes": 1852,
+    "sha256": "0d676a78ca84f04a1fbaf9caaefc332427fede0ddd35630479025f50829d1511"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/MuJoCoBridgeTypes.h",
+    "bytes": 3822,
+    "sha256": "1dbb3f11af090b31761925159090d9f214ef8a2d99dd9b48427907f98040f579"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/MuJoCoStateReceiverComponent.h",
+    "bytes": 2961,
+    "sha256": "dff72f663aed4d2b1a89ecfd062fc03d3f64d0733b2f994bae2338b8c2eac8a2"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/Public/Bridge/ReplicaOfficeVisualActor.h",
+    "bytes": 844,
+    "sha256": "101eda6f2863a2ada5db6003fa30f7a7c6ba3e0ab2d3c4a91af842523d8e629d"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwin/ReplicaPhysicsTwin.Build.cs",
+    "bytes": 435,
+    "sha256": "49437cbb9c54f0fe81a39e65846e5e6529e2d106de46a3ee2495ec528a3c785f"
+  },
+  {
+    "path": "unreal/Source/ReplicaPhysicsTwinEditor.Target.cs",
+    "bytes": 362,
+    "sha256": "a37d8ecd5c0478f26945d8fe6b0d8666fb248230c2c5b7405af2588cc4218849"
+  }
+]
